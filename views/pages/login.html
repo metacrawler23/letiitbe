@@ -1,0 +1,49 @@
+<div class="mt-50 mb-60">
+    <div class="container">
+        <form method="post" accept-charset="utf-8" name="loginForm" id="mainForm" class="p-lg p-n-xs">
+            <div class="row">
+                <div class="col-md-5 col-md-offset-1 border-right b-n-xs">
+                    <!-- <h4 class="section-header"><?php echo $content['headline']; ?></h4>
+                    <p><?php echo $content['tag_line']; ?></p>
+                    <?php
+                    if (!empty($message)) : ?>
+                        <div class="message alert alert-danger">
+                            <p><?= $message ?></p>
+                        </div>
+                    <?php endif ?>
+                    <div class="message alert alert-danger" style="display: none"> -->
+
+                    <!-- </div> -->
+                    <div class="form-group">
+                        <label class="control-label"> SportsPass Account Email </label>
+                        <input class="form-control" type="text" name="username" id="username" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"> Password </label>
+                        <input class="form-control" type="password" name="password" id="password" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox m-l-md font-md right-align">
+                            <!-- <input class="form-control" type="checkbox" id="remember-me" name="remember" value="1" > Remember me | -->
+                            <a href="/forgetpassword">Forgot your password?</a>
+                        </label>
+
+                    </div>
+                    <div class="form-group right-align">
+                        <input type="hidden" name='url' value="<?= ($_REQUEST['url']) ? $_REQUEST['url'] : '' ?>">
+                        <input type="hidden" name='clicked_source' value="<?= ($_REQUEST['clicked_source']) ? $_REQUEST['clicked_source'] : '' ?>">
+                        <input type="submit" class="btn btn-primary" value="Submit">
+                    </div>
+                </div>
+
+                <div class="col-md-5">
+                    <div class="form-group text-center" style="padding-top:10%;">
+                        <h5>Don’t have a SportsPass account? </h5>
+
+                        <a href="<?= $BASE_URL ?>/signup" class="btn btn-primary btn-lg"> Join Now </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

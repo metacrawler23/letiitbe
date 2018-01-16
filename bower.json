@@ -1,0 +1,20 @@
+{
+  "name": "sportspass",
+  "homepage": "https://github.com/angelo-sportspass/frontend-angular",
+  "authors": [
+    "Cj Cortez"
+  ],
+  "description": "0.0.0",
+  "main": "SportsPass Website",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "angularjs#^1.6.8",
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "angular-ui-router": "^1.0.13",
+    "angular-loading-bar": "^0.9.0",
+    "oclazyload": "^1.1.0",
+    "tether": "^1.4.3",
+    "angular-owl-carousel": "^0.3.0"
+  }
+}

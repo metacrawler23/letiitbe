@@ -1,0 +1,685 @@
+@charset "utf-8";
+/* CSS Document */
+
+::selection {
+    background: #000;
+    /* Safari */
+
+    color: #fff;
+}
+* {
+    margin: 0px;
+    padding: 0px;
+    outline: none !important;
+}
+ul,
+li {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    outline: none;
+}
+@font-face {
+    font-family: 'exoblack';
+    src: url('../fonts/exo-black-webfont.eot');
+    src: url('../fonts/exo-black-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/sports/exo-black-webfont.woff2') format('woff2'), url('../fonts/sports/exo-black-webfont.woff') format('woff'), url('../fonts/exo-black-webfont.ttf') format('truetype'), url('../fonts/exo-black-webfont.svg#exoblack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'exobold';
+    src: url('../fonts/exo-bold-webfont.eot');
+    src: url('../fonts/exo-bold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/sports/exo-bold-webfont.woff2') format('woff2'), url('../fonts/sports/xo-bold-webfont.woff') format('woff'), url('../fonts/exo-bold-webfont.ttf') format('truetype'), url('../fonts/exo-bold-webfont.svg#exobold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'exoregular';
+    src: url('../fonts/exo-regular-webfont.eot');
+    src: url('../fonts/exo-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/sports/exo-regular-webfont.woff2') format('woff2'), url('../fonts/sports/exo-regular-webfont.woff') format('woff'), url('../fonts/exo-regular-webfont.ttf') format('truetype'), url('../fonts/exo-regular-webfont.svg#exoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'exosemibold';
+    src: url('../fonts/exo-semibold-webfont.eot');
+    src: url('../fonts/exo-semibold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/sports/exo-semibold-webfont.woff2') format('woff2'), url('../fonts/sports/exo-semibold-webfont.woff') format('woff'), url('../fonts/exo-semibold-webfont.ttf') format('truetype'), url('../fonts/exo-semibold-webfont.svg#exodemibold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'exomedium';
+    src: url('../fonts/exo-medium-webfont.eot');
+    src: url('../fonts/exo-medium-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/sports/exo-medium-webfont.woff2') format('woff2'), url('../fonts/sports/exo-medium-webfont.woff') format('woff'), url('../fonts/exo-medium-webfont.ttf') format('truetype'), url('../fonts/exo-medium-webfont.svg#exomedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'exolight';
+    src: url('../fonts/Exo-Light.eot');
+    src: url('../fonts/Exo-Light.eot?#iefix') format('embedded-opentype'), url('../fonts/sports/Exo-Light.woff') format('woff'), url('../fonts/sports/Exo-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'exoextralight';
+    src: url('../fonts/Exo-ExtraLight.eot');
+    src: url('../fonts/Exo-ExtraLight.eot?#iefix') format('embedded-opentype'), url('../fonts/sports/Exo-ExtraLight.woff') format('woff'), url('../fonts/sports/Exo-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+/********************
+Start - General Section
+********************/
+
+.sticky-menu {
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.logo {
+    float: left;
+    padding: 9px 0;
+}
+.upper-nav.affix .out_menu {
+    display:block !important;
+}
+/********************
+End - General Section
+********************/
+
+
+/********************
+Start - Home Section
+********************/
+
+/*.banner_section {*/
+    /*width: 100%;*/
+    /*margin-top: -85px;*/
+    /*padding-top: 85px;*/
+    /*padding-bottom: 0;*/
+    /*background-size: cover;*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: center top;*/
+/*}*/
+/*.banner_header {*/
+    /*width: 100%;*/
+    /*margin: 150px 0 100px 0;*/
+    /*position: relative;*/
+    /*padding: 0;*/
+    /*z-index: 9;*/
+/*}*/
+/*.banner_header h2 {*/
+    /*width: 100%;*/
+    /*font-size: 60px;*/
+    /*margin: 15px 0 10px 0;*/
+    /*color: #fff;*/
+    /*padding: 0;*/
+    /*font-family: 'exosemibold';*/
+    /*line-height: 52px;*/
+/*}*/
+/*.banner_header p {*/
+    /*width: 100%;*/
+    /*font-size: 30px;*/
+    /*line-height: 36px;*/
+    /*padding: 0;*/
+    /*margin: 0;*/
+    /*color: #fff;*/
+    /*padding: 15px 0 0 0;*/
+/*}*/
+/*.banner_link {*/
+    /*width: 100%;*/
+    /*padding: 15px 0 0 0;*/
+/*}*/
+/*.banner_link a {*/
+    /*font-size: 15px;*/
+    /*color: #5bcbf5;*/
+    /*padding: 0;*/
+    /*font-family: 'exomedium';*/
+/*}*/
+/*.banner_link a:hover {*/
+    /*color: #fff;*/
+/*}*/
+/*.banner_card {*/
+    /*width: auto;*/
+    /*margin-top: 10px;*/
+/*}*/
+/*.banner_card img {*/
+    /*width: auto;*/
+    /*margin-top: 10px;*/
+/*}*/
+/*****************
+End - Home Section
+******************/
+
+/*****************
+Start- Join  Section
+******************/
+.join_section {
+    width: 100%;
+    background: #fff;
+    /*padding: 30px 0 60px 0;*/
+    padding: 40px 0 70px 0;
+}
+.join_copy {
+    width: 100%;
+    /*margin-top: 30px;*/
+    margin-top: 40px;
+}
+.join_copy h2 {
+    width: 100%;
+    color: #222;
+    /*font-size: 20px;*/
+    font-size: 25px;
+    font-family: 'exosemibold';
+}
+.join_copy p {
+    width: 100%;
+    font-size: 15px;
+    color: #222;
+    line-height: 20px;
+    /*padding: 25px 0 0 0;*/
+    padding: 10px 0 0 0;
+}
+.join_copy a {
+    color: #000;
+    font-family: 'exomedium';
+}
+.join_copy a:hover {
+    color: #5FCBF4;
+}
+.join_blurb {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+.join_blurb a span {
+    float: none;
+    font-size: 22px;
+    line-height: 24px;
+    color: #252525;
+    text-align: center;
+    font-family: 'exosemibold';
+    text-transform: uppercase;
+		display:block;
+		width:100%;
+}
+.join_blurb a:hover span {
+    color: #5FCBF4;
+}
+.join_blurb img {
+    margin-bottom: 15px;
+    float: none;
+    /*width: auto;*/
+    width: 50%;
+}
+/*****************
+End - Join Section
+******************/
+
+/*****************
+Start- About Section
+******************/
+
+.about_section {
+    width: 100%;
+    background: url(../img/sports/home-bg-img1.jpg) fixed right no-repeat;
+    background-size: cover;
+    /*padding: 30px 0 60px 0;*/
+    padding: 55px 0 70px 0;
+}
+.about_copy {
+    width: 100%;
+    /*margin-top: 30px;*/
+    margin-top: 65px;
+}
+.about_copy h3 {
+    width: 100%;
+    font-size: 34px;
+    color: #5bcbf5;
+    font-family: 'exomedium';
+    margin: 0;
+    padding: 0;
+}
+.about_copy p {
+    width: 100%;
+    font-size: 14px;
+    color: #fff;
+    padding: 10px 0 0 0;
+    line-height: 20px;
+}
+.about_copy .about_logo_holder {
+    margin-top: 5px;
+}
+
+.about_placeholder {
+    width: 100%;
+    margin-top: 30px;
+}
+.about_placeholder img {
+    width: 100%;
+}
+.about_placeholder p {
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    color: #fff;
+    padding: 10px 0 0 0;
+}
+
+/*****************
+End - About Section
+******************/
+
+/*****************
+Start - Reward Section
+******************/
+
+.reward_section {
+    width: 100%;
+    background: url(../img/sports/reward-img.jpg) top right no-repeat;
+    background-size: cover;
+    padding: 80px 0;
+}
+.reward_section h3 {
+    width: 100%;
+    font-family: 'exosemibold';
+    font-size: 60px;
+    line-height: 50px;
+    color: #222;
+}
+.reward_section p {
+    width: 100%;
+    font-size: 30px;
+    color: #fff;
+    padding: 10px 0 0 0;
+}
+.reward_link {
+    width: 100%;
+    padding: 10px 0 0 0;
+}
+.reward_link a {
+    font-size: 15px;
+    color: #5bcbf5;
+    padding: 0;
+    font-family: 'exomedium';
+}
+.reward_link a:hover {
+    color: #fff;
+}
+
+.coupons_img_box {
+    float: left;
+    width: 100%;
+    margin-top: 30px;
+    /*float: left;*/
+    /*width: 100%;*/
+    /*margin-top: 40px;*/
+    /*text-align: center;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+}
+
+.coupons_img_box a {
+    display: block;
+    text-align: center;
+}
+
+.coupons_img_box img {
+    /*float: left;*/
+    /*width: 100%;*/
+    /*min-height: 164px;*/
+    /*height: 234px;*/
+    width: 100%;
+    /*height: 208px;*/
+    /*width: 89%;*/
+    /*margin: auto;*/
+}
+
+.col-row {
+    float: right;
+}
+
+.col-row .coupons_img_box img {
+    height: auto;
+    float: right;
+}
+
+
+/*****************
+End - Reward Section
+******************/
+
+/*****************
+Start - Reward Blurb Section
+******************/
+.rewards_blurb_section {
+    width:100%;
+    background:#fff;
+    padding:60px 0;
+}
+.rewards_blurb {
+    width: 100%;
+    margin-bottom: 30px;
+}
+.rewards_blurb h3 {
+    width: 100%;
+    color: #5bcbf5;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 25px;
+    font-family: 'exosemibold';
+}
+.rewards_blurb p {
+    width: 100%;
+    color: #2a2a2a;
+    font-size: 15px;
+    text-align: center;
+    line-height: 20px;
+    padding: 15px 0 0 0;
+}
+.rewards_blurb_icon {
+    width: 100%;
+    text-align: center;
+}
+.coupons_img_box.custom_tiles{
+    overflow:hidden;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/*****************
+End - Reward Blurb Section
+******************/
+
+/*****************
+Start - Experience Section
+******************/
+.experience_section {
+    width: 100%;
+    background: url(../img/sports/experience-img.jpg) top right no-repeat;
+    background-size: cover;
+    padding: 80px 0;
+    background-position-x: 85%;
+}
+.experience_section h3{
+    width: 100%;
+    font-family: 'exosemibold';
+    font-size: 60px;
+    line-height: 50px;
+    color: #5bcbf5;
+}
+.experience_section p{
+    width: 100%;
+    font-size: 30px;
+    color: #fff;
+    padding: 10px 0 0 0;
+}
+/*****************
+End - Experience Section
+******************/
+
+/*****************
+Start - Records Section
+******************/
+
+.records_section {
+    width: 100%;
+    background: url(../img/sports/making-bg-img.jpg) fixed right no-repeat;
+    background-size: cover;
+    padding: 30px 0 60px 0;
+}
+.records_box {
+    float: left;
+    width: 50%;
+    font-size: 12px;
+    color: #fff;
+    font-family: 'exobold';
+    text-align: center;
+    margin: 30px 0;
+}
+.records_box span {
+    float: left;
+    width: 100%;
+    text-align: center;
+    font-size: 36px;
+    line-height: 46px;
+}
+
+/*****************
+End - Records Section
+******************/
+
+
+
+/*****************
+Start - Partner
+******************/
+.partner_section{
+    width: 100%;
+    background: #fff;
+    padding: 60px 0 50px;
+}
+.partner_section h3{
+    width: 100%;
+    font-family: 'exomedium';
+    font-size: 34px;
+    line-height: 36px;
+    color: #5bcbf5;
+    text-align:center;
+    margin-bottom:30px;
+}
+#ambassador-slider .owl-nav{
+    width: 100%;
+    position: absolute;
+    top: 40%;
+}
+#ambassador-slider .owl-nav .owl-prev {
+    float: left;
+    left: -10px;
+    position: absolute;
+}
+#ambassador-slider .owl-nav .owl-next {
+    float: right;
+    right: -10px;
+    position: absolute;
+}
+#clublogo-slider {
+    margin:20px 0 0 0;
+}
+#clublogo-slider img{
+    max-height:100px;
+}
+
+/*****************
+End - Partner
+******************/
+
+
+
+
+/*****************
+Start - Blue Banner Section
+******************/
+.blue_banner {
+    width: 100%;
+    background: url(../img/sports/club-board-bg.jpg) left top no-repeat;
+    background-size: cover;
+    padding: 60px 0;
+}
+.blue_banner h4 {
+    width: 100%;
+    font-family: 'exobold';
+    font-size: 36px;
+    line-height: 36px;
+    color: #000;
+}
+.blue_banner p {
+    width: 100%;
+    font-size: 15px;
+    color: #222;
+    padding: 15px 0 0 0;
+}
+/*****************
+End - Blue Banner  Section
+******************/
+
+/*****************
+Start - Contact
+******************/
+.contact_section {
+    width: 100%;
+    background: fff;
+    padding: 60px 0;
+}
+.contact_section h3 {
+    font-size: 22px;
+    color: #222;
+    font-family: 'exosemibold';
+}
+.contact_section input[type=text],
+.contact_section input[type=email],
+.contact_section input[type=url],
+.contact_section .form-joining,
+.contact_section .form-message{
+    width: 100%;
+    font-size: 15px;
+    border: none;
+    background: #fff;
+    min-height: 40px;
+    border-bottom: 1px solid #333;
+    margin-top: 15px;
+    padding: 5px;
+}
+.contact_section .form-joining {
+    margin-top: 32px;
+}
+.contact_section .form-submit {
+    font-size: 12px;
+    border: 1px solid #222;
+    padding: 8px 25px;
+    border-radius: 5px;
+    background: #fff;
+}
+/*****************
+End - Contact
+******************/
+
+/*****************
+Start - Footer
+******************/
+footer {
+    width: 100%;
+    background: #181818;
+}
+footer .footer_col{
+  width: 100%;
+  margin: 50px 0;
+}
+footer .footer_col {
+    max-width: 100%;
+}
+footer .footer_col ul {
+    width: 100%;
+    list-style: none;
+}
+footer .footer_col li {
+    width: 100%;
+    list-style: none;
+    margin-bottom: 15px;
+}
+footer .footer_col li a {
+    font-size: 15px;
+    color: #fff;
+}
+.footer_bottom {
+  width: 100%;
+  background: #000;
+}
+.footer_icon{
+    float:left;
+    width: 50%;
+    padding: 25px 0 0 0;
+}
+.footer_icon a {
+    color: #a1a1a1;
+    font-size: 10px;
+}
+.footer_link{
+    float:left;
+    text-align: right;
+    width: 50%;
+    padding: 25px 0;
+    color: #a1a1a1;
+    font-size: 10px;
+}
+.footer_link a {
+    color: #a1a1a1;
+    font-size: 10px;
+}
+/*****************
+End - Footer
+******************/
+
+
+/*****************
+START - Responsive
+******************/
+
+@media (min-width:768px) {
+    .container2 {
+        width: 700px
+    }
+}
+@media (min-width:992px) {
+    .container2 {
+        width: 846px
+    }
+}
+@media (min-width:1200px) {
+    .container2 {
+        width: 846px
+    }
+}
+@media (max-width:767px) {
+    .rewards_blurb_section .tile-holder div:nth-child(9) {
+        display: none;
+    }
+}
+@media (max-width:480px) {
+    .experience_section h3,
+    .reward_section h3{
+        font-size: 40px;
+    }
+    .banner_card img{
+        width:80%;
+    }
+    .logo-container img{
+        width:200px;
+    }
+    .join_blurb a span {
+        font-size:16px;
+    }
+    .rewards_blurb h3 {
+        font-size: 20px;
+    }
+    .rewards_blurb p {
+        padding:0px;
+    }
+    .reward_section p,
+    .experience_section p{
+        font-size:20px;
+    }
+    .coupons_img_box {
+        margin-top:20px;
+    }
+    .experience_section {
+
+    }
+}
+/*****************
+END - Responsive
+******************/

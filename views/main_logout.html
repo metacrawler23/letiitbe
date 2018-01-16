@@ -1,0 +1,381 @@
+<section class="banner-container" id="home" style="background:url(./img/sports/SportsPass-Lights-1903x1500.jpg) center top no-repeat; background-size:cover;">
+
+    <div class="container" style="position:relative;">
+        <div class = "col-md-9 copy-container">
+            <h1> Welcome to <br> SportsPass...</h1>
+            <a ng-click="gotoBottom()">test</a>
+            <br/>
+            <h5 style="margin-bottom: 5px">and your SportsCash eWallet</h5>
+            <h5 style="margin-top: 5px">Reward, earn, experience, share</h5>
+            <div class="discover_link">
+                <a href="#">_Discover more</a>
+            </div>
+        </div>
+<!--            displays logo if there is slug in the url -->
+<!--        <div class = "col-md-3 logo-container">-->
+<!--            <img src="/assets/sportspass/clubs/5a3b6a46cc0a8_knox-logo.png" alt="" >-->
+<!--        </div>-->
+        <div class="col-md-12  banner_card">
+            <img src="./img/sports/SPS551-A-LP_MemberCards.png">
+        </div>
+    </div>
+
+</section>
+
+<section class="join_section" id="join">
+    <div class=" container">
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="join_copy">
+                    <h2>Join / Activate / Register</h2>
+                    <p>Do you have a membership card or a unique digital invite code?</p>
+                    <p>If yes simply <a ui-sref-active="active" ui-sref="app.register">REGISTER NOW</a> to create your digital Membership Card.</p>
+                    <p>Already have an account click <a ui-sref-active="active" ui-sref="app.login">LOGIN NOW</a>.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-6 ">
+                <div class="join_blurb">
+                    <a href="/signup"><img src="./img/sports/register-icon.png" alt="">
+                        <span> Register Now </span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-6">
+                <div class="join_blurb">
+                    <a ui-sref-active="active" ui-sref="app.login"><img src="./img/sports/register-icon.png" alt="">
+                        <span> Login Now </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about_section" id="about">
+    <div class=" container">
+        <div class="row">
+            <div class="col-md-5 col-sm-12 col-xs-12">
+                <div class="about_copy">
+                    <h3>What is SportsPass?</h3>
+                    <p>SportsPass is a social enterprise project focused on reducing the financial barriers to participation in sport for all players nationally.</p>
+                    <p>SportsPass members receive direct access to Australia’s leading sports rewards and member benefits program designed specifically to offset the cost of playing sport.</p>
+                </div>
+            </div>
+<!--            <div class="col-md-6 col-sm-12 col-xs-12 col-md-offset-1">-->
+<!--                <div class="about_placeholder">-->
+<!--                    <iframe width="100%" height="230" src="https://www.youtube.com/embed/qp_ZMJnRL9k?modestbranding=1&autohide=1&showinfo=0&controls=0" frameborder="0" allowfullscreen></iframe>-->
+<!--                    <p>Matt White explains how SportsPass works.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+    </div>
+</section>
+
+<section class="reward_section">
+    <div class=" container">
+        <h3>Reward...</h3>
+        <p>2 for 1 offers, discounts and competitions</p>
+        <div class="reward_link">
+            <a href="https://sportspass.com.au/rewards/">_Discover more</a>
+        </div>
+    </div>
+</section>
+
+<section class = "rewards_blurb_section" id="rewards">
+    <div class=" container">
+        <div class="row mt-30">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="rewards_blurb">
+                    <div class="rewards_blurb_icon"><img src="./img/sports/reward-icon1.png" alt="">
+                    </div>
+                    <h3>REWARD</h3>
+                    <p>Let SportsPass reward you with 2 for 1 offers, discounts and competitions to win big prizes!</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="rewards_blurb">
+                    <div class="rewards_blurb_icon"><img src="./img/sports/reward-icon2.png" alt="">
+                    </div>
+                    <h3>EARN</h3>
+                    <p>Shop online with SportsPass Cash Rewards at over 1000 major retailers. Earn cash back to pay for your sporting fees, uniform and equipment.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="rewards_blurb">
+                    <div class="rewards_blurb_icon"><img src="./img/sports/reward-icon3.png" alt="">
+                    </div>
+                    <h3>EXPERIENCE</h3>
+                    <p>With all of the major theme parks and tourist attractions a part of the SportsPass program, you will never have nothing to do again!</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="rewards_blurb">
+                    <div class="rewards_blurb_icon"><img src="./img/sports/reward-icon4.png" alt="">
+                    </div>
+                    <h3>SHARE</h3>
+                    <p>Share the love, promote Supporter cards to fundraise for yourself or your club!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class=" container2 container">
+        <div class="row mt-30 tile-holder">
+            <!-- <?php
+                $tiles_display = CustomBanner::getDefaultTiles();
+                foreach ($tiles_display as $key => $value) :
+                    $target = ($value['new_tab'] == 1) ? "_blank" : "_self";
+            ?> -->
+                <!-- <div class="col-md-4 col-sm-4 clearfix col-xs-6 <?= ($value['sort_order'] == 12 && !empty($value['default_tile'])) ? 'col-row' : '' ?>">
+                    <div class="coupons_img_box default_tiles">
+                        <a target="<?= $target ?>" href="<?= $value['url'] ?>">
+                            <img src="<?= $value['banner_image'] ?>" alt="<?= $value['name'] ?>">
+                        </a>
+                    </div>
+                </div> -->
+
+            <!-- <?php endforeach; ?> -->
+        </div>
+    </div>
+</section>
+
+<section class = "experience_section">
+    <div class=" container">
+        <h3>Experience...</h3>
+        <p>3000+ discounted activities, what will you do?</p>
+        <div class="experience_link">
+            <a href="https://sportspass.experienceoz.com.au/en/" target="_blank">_Discover more</a>
+        </div>
+    </div>
+</section>
+
+<section class="records_section" id="book">
+    <div class=" container">
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="about_copy">
+                    <h3>Making a difference in the community!</h3>
+                    <!--<h4>A Proud Community Partner</h4>-->
+                    <p>"Finally an instant rewards program that gives back an Australian company embracing the critical issues and knowingly dealing with them, providing a sustainable funding model that purposefully supports all sports at all levels."</p>
+                    <div class="about_logo_holder">
+                        <img src="./img/sports/george-bank-logo.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12 mt-20">
+                <div class="records_box">MORE THAN<span class="counter">5000</span>
+                    <br> CLUBS
+                </div>
+                <div class="records_box">MORE THAN<span class="counter">700,000</span>
+                    <br> MEMBERS
+                </div>
+                <div class="records_box">MORE THAN<span class="counter">1000</span>
+                    <br> RETAILERS
+                </div>
+                <div class="records_box">MORE THAN<span class="counter">3000</span>
+                    <br> EXPERIENCES &
+                    <br> ACTIVITIES
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="partner_section" id="sports"  >
+    <div class=" container">
+        <div class="row">
+            <h3>Sportspass Ambassador &amp; Community Partners</h3>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+
+              <div ng-controller="ambassadorCarouselCtrl" >
+
+                <div id = "ambassador-slider" ambassador-carousel-directive="" class="owl-carousel" data-options="">
+                  <div ambassador-carousel-item-directive="" ng-repeat="item in ::ambassadorImages" class="item">
+                    <img src = "{{::item}}">
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 mt-50 mb-20" ng-controller="liMarqueeCtrl">
+
+
+                <div li-marquee-directive="" id = "clublogo-slider" class="mWrap">
+                    <!-- <?php
+                        $club_display = SportsPassClub::getClubs();
+
+                        foreach ($club_display as $k => $v) :
+                    ?>
+                            <a href="<?= $v['sports_link'] ?>">
+                                <img src="<?= $v['logo'] ?>" alt="<?= $v['club_name'] ?>" />
+                            </a>
+                    <?php endforeach; ?> -->
+                      <a ng-repeat="item in ::clubImages" class="item">
+                          <img src = "{{::item}}">
+                      </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class = "blue_banner">
+    <div class=" container">
+        <h4>Get Your Club On Board Today!</h4>
+        <p>Joining SportsPass gives your club and your members opportunities no other rewards program can give!</p>
+        <p>Plus we can work with you with our simple fundraising solution. Share the fun amongst your local community through the promotion of Player and Supporter cards.</p>
+    </div>
+</section>
+
+<section class = "contact_section" id="contact">
+    <div class=" container">
+        <h3>Let's Talk</h3>
+
+        <form action="#" method="post" class="contact_form" novalidate="novalidate">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <span class="wrap-firstname">
+                        <input type="text" name="firstname" value="" size="40" class="form-firstname" aria-required="true" aria-invalid="false" placeholder="First Name*">
+                    </span>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <span class="wrap-surname">
+                        <input type="text" name="lastname" value="" size="40" class="form-surname" aria-required="true" aria-invalid="false" placeholder="Surname*">
+                    </span>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <span class="wrap-enquiry">
+                        <input type="text" name="enquiry" value="" size="40" class="form-enquiry" aria-required="true" aria-invalid="false" placeholder="Enquiry*">
+                    </span>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <span class="wrap-email">
+                        <input type="email" name="email" value="" size="40" class="form-email" aria-required="true" aria-invalid="false" placeholder="Email*">
+                    </span>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <span class="wrap-url">
+                        <input type="url" name="url" value="" size="40" class="form-url" aria-invalid="false" placeholder="Website">
+                    </span>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <span class="wrap-joining">
+                        <select name="joinning" class="form-joining" aria-required="true" aria-invalid="false">
+                            <option value="INDIVIDUAL JOINING">INDIVIDUAL JOINING</option>
+                            <option value="CLUB JOINING">CLUB JOINING</option>
+                            <option value="ANY OTHER ENQUIRY">ANY OTHER ENQUIRY</option>
+                        </select>
+                    </span>
+                </div>
+                <div class="col-md-8 col-sm-12 col-xs-12">
+                    <span class="wrap-message">
+                        <textarea name="message" cols="40" rows="10" class="form-message" aria-required="true" aria-invalid="false" placeholder="Message*"></textarea>
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="wrap_submit">
+                        <input type="submit" value="Send Email" class="form-submit btn-submit-contact" id="SendEmail">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<!-- <?=  CHtml::scriptFile(Yii::app()->request->baseUrl . '/skin/sportspass/js/jquery.validate.js'); ?> -->
+<!-- <script type="text/javascript">
+    $(".contact_form").validate({
+        /* @validation states + elements */
+        errorClass: 'error-view',
+        validClass: 'success-view',
+        errorElement: 'span',
+        onkeyup: false,
+        onclick: false,
+
+        rules:{
+            'firstname': {
+                required: true
+            },
+            'lastname': {
+                required: true
+            },
+            'email': {
+                required: true
+            },
+            'enquiry': {
+                required: true
+            },
+            'message': {
+                required: true
+            }
+        },
+        messages: {
+            'firstname': {
+                required: "Please enter your first name"
+            },
+            'lastname': {
+                required: "Please enter your last name"
+            },
+            'email': {
+                required: "Please enter your email"
+            },
+            'enquiry': {
+                required: "Please enter your enquiry"
+            },
+            'message': {
+                required: "Please enter your message detail"
+            }
+        },
+        // Add class 'error-view'
+        highlight: function(element, errorClass, validClass) {
+            $(element).attr('style', 'border: 1px solid red');
+        },
+        // Add class 'success-view'
+        unhighlight: function(element, errorClass, validClass) {
+            $(element).removeAttr('style');
+        },
+        // Error placement
+        errorPlacement: function(error, element) {
+            $(element).focus();
+        },
+        submitHandler : function(form) {
+
+            var $this = $('form.contact_form');
+            var content = "";
+
+            content += 'Website: ' + $this.find('input[name="url"]').val() +
+                        ' <br/>Message: ' + $this.find('textarea[name="message"]').val();
+
+            var data = {
+                name: $this.find('input[name="firstname"]').val() + ' ' +  $this.find('input[name="lastname"]').val(),
+                subject: $this.find('select option:selected').text() + '-' + $this.find('input[name="enquiry"]').val(),
+                email: $this.find('input[name="email"]').val(),
+                body: content
+            };
+
+            $.post("/site/sendEnquiry", data, function(data){
+
+                console.log(data);
+                $(".btn-submit-contact").removeAttr('disabled').val('Done!');
+
+                $this.find('input[name="firstname"]').val('');
+                $this.find('input[name="lastname"]').val('');
+                $this.find('select option:first').attr('selected', 'selected');
+                $this.find('input[name="enquiry"]').val('');
+                $this.find('input[name="email"]').val('');
+                $this.find('input[name="url"]').val('');
+                $this.find('textarea[name="message"]').val('');
+            });
+
+            return false;
+        }
+    });
+</script> -->

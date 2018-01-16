@@ -1,0 +1,125 @@
+<div id="wrapper_bu" class = "dashboard">
+
+
+  <div id="bu1">
+      <div id = "usercards"  class = "user-section">
+          <div class = "section-header clearfix">
+              <div class = "section-label col-md-6 col-sm-6 col-xs-6">
+                  <div id = "cards" class = "circle-img">
+                      <i class="fa fa-address-card"></i>
+                  </div>
+                  <h3>My Cards</h3>
+              </div>
+              <div class = "section-link col-md-6 col-sm-6 col-xs-6">
+                       <a class = "wallet-link"  href = "/profile#sportspass-cards"><i class = "fa fa-eye"></i> View All</a>
+              </div>
+          </div>
+
+              <ul class = "clearfix">
+                      <li class = "col-md-6 wallet-card" ng-repeat="listcard in cards">
+                          <img class = "image-preview-modal" src = "{{listcard.memberCard}}">
+                          <span>{{listcard.memberName}}</span>
+<!--                            <span><a href = "/profile#sportspass-cards">--><?//= SportsPassClub::getClubNameById($ac_value['club_id']) ?><!--</a></span>-->
+                          <a href="javascript:;" style = "display:none" class="btn btn-primary card-modal" data-club-id="<?= $ac_value['club_id'] ?>" data-member-number = "<?= SportsPassClubMembers::getMemberMemberNumber($ac_value['sp_member_id']) ?>" data-banner-image = "<?= $club['banner_image'] ?>" data-name="<?= SportsPassClub::getClubNameById($ac_value['club_id']) ?>" data-card='<?= SportsPassClubMembers::getMemberCardData($ac_value['sp_member_id']) ?>' data-avatar="<?= SportsPassAccountCard::getAvatarById($ac_value['sp_member_id']) ?>" data-club-logo="<?= SportsPassClub::getClubLogoById($ac_value['club_id']) ?>">
+                              View Card
+                          </a>
+                      </li>
+              </ul>
+
+      </div>
+  </div>
+
+  <div id="bu2">
+      <div id = "userwishlist" class = "user-section">
+          <div class = "section-header clearfix">
+              <div class = "section-label col-md-6 col-sm-6 col-xs-6">
+                  <div id = "wishlist" class = "circle-img">
+                      <i class="fa fa-heart"></i>
+                  </div>
+                  <h3>My Wishlist</h3>
+              </div>
+
+              <div class = "section-link col-md-6 col-sm-6 col-xs-6">
+                      <a class = "wallet-link" href = "/profile/#wishlist-products"><i class = "fa fa-eye"></i> View Wishlist</a>
+              </div>
+
+          </div>
+
+          <ul class = "listholder">
+                  <li class = "clearfix" ng-repeat="listwish in wishlist">
+                      <div class = "img-holder">
+
+                          <a data-id = "<?php echo $wish_list['id'] ?>" href = "#" class = "<?php echo $modalme ?>">
+                              <div class = "img-wrapper">
+                                  <span class="helper"></span>
+                                  <img src = "{{listwish.image}}">
+                              </div>
+                          </a>
+                      </div>
+                      <span>
+                          <a data-id = "<?php echo $wish_list['id'] ?>" href = "#" class = "<?php echo $modalme ?>">
+                              {{listwish.name}} <br>
+                          </a>
+                            {{listwish.price}} + <br>
+                            {{listwish.earn}}
+                      </span>
+                  </li>
+          </ul>
+      </div>
+  </div>
+
+    <div id="bu3">
+        <div id = "userbalance" class = "user-section">
+            <div class = "section-header clearfix">
+                <div class = "section-label col-md-6 col-sm-6 col-xs-6">
+                    <div id = "balance" class = "circle-img">
+                        <i class = "fa fa-balance-scale"></i>
+                    </div>
+                    <h3>My Balance</h3>
+                </div>
+            </div>
+            <div class = "balance-details clearfix">
+                <p class = "amount-label col-md-6">My Balance </p>
+                <p class = "amount-balance col-md-6">$ {{balance}}</p>
+                <p class = "amount-label col-md-6">Total contribution to {{contribution.chosenClub}} </p>
+                <p class = "amount-contribution col-md-6">$ {{contribution.totalContribution}} </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="user-section-holder">
+
+    </div>
+
+</div>
+<div id="card-modal" class="modal fade-scale" role="dialog">
+
+    <div class="modal-dialog">
+
+        <div class="card-flip-container">
+            <div class="card-flipper">
+                <div class="card-front">
+                    <img src=""
+                         alt=""
+                         class=""
+                         style="width: 100%"/>
+                </div>
+                <div class="card-back">
+
+                    <!-- Modal content-->
+                    <div class="modal-content" style="text-align: center">
+
+                        <div class="modal-body">
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <a href="#" class="modal-close" data-dismiss="modal"><span class="modal-close-icon"></span></a>
+    </div>
+</div>

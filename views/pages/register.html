@@ -1,0 +1,98 @@
+<div id="signup-layout">
+    <div class="container">
+
+        <div class="signup-wrapper">
+            <div class="container">
+                <div class="left-sign-col col-xs-12 col-sm-12  col-md-6 " >
+                    <div class="page-title">
+                        <h1 class="m-t-none">Create a SportsPass Account</h1>
+                        <p>To be able to add a membership card to your wallet, you first need to create a SportsPass account.</p>
+                        <p>The SportsPass Account owner can then add multiple cards from multiple members all under their SportsPass account.</p>
+                        <p>E.g. Parents &amp; Guardians adding dependants to the same account for easy card retrieve.</p>
+                    </div>
+                    <span class = "ps">Once you have created a new Sportspass account, please use <a href = "<?= $this->createAbsoluteUrl('/login') ?>">Login</a>.</span>
+                </div>
+
+                <div class="col-md-6 col-xs-12">
+                    <div class = "form-container">
+                        <form id="signup-form" name-"form" class="form-vertical" ng-submit="vm.register()" role="form">
+                            <h3>Join SportsPass</h3>
+                            <div class="row">
+
+                                <div class="form-group col-xs-6 has-feedback ">
+                                    <label class="sr-only" for="first_name">First Name</label>
+                                    <input type="text" name="first_name" class="form-control alphanumeric" id="first_name" placeholder="First name" title="Please enter a valid first name" value="" required="" maxlength="40" aria-required="true">
+                                </div>
+                                <div class="form-group col-xs-6 has-feedback ">
+                                    <label class="sr-only" for="lastname">Last Name</label>
+                                    <input type="text" name="last_name" class="form-control alphanumeric" id="last_name" placeholder="Last name" title="Please enter a valid last name" value="" required="" maxlength="40" aria-required="true">
+                                </div>
+                            </div>
+
+                            <!--/.row-->
+                            <div class="row">
+                                <div class="form-group col-xs-12 has-feedback ">
+                                    <label class="sr-only" for="email">Email address</label>
+                                    <input type="email" name="email" class="form-control username" id="email" placeholder="Email address" title="Please enter a valid email address" value="" required="" maxlength="40" aria-required="true">
+                                </div>
+                            </div>
+
+                            <!--/.row-->
+                            <div class="row"><!--detect valid postcode 4 digits-->
+                                <div class="form-group col-xs-12 has-feedback ">
+                                    <label class="sr-only" for="postcode">Postcode</label>
+                                    <input type="text" name="postcode" class="form-control postcode" id="postcode" placeholder="Postcode" title="Please enter a valid postcode" value="" required="" maxlength="4" aria-required="true">
+                                </div>
+                            </div>
+
+                            <!--/.row-->
+                            <div class="row">
+                                <div class="form-group col-xs-12 has-feedback ">
+                                    <label class="sr-only" for="password">Password</label>
+                                    <p style = "font-size:12px">Password must contain one uppercase, one digit and be a minimum of six characters.</p>
+                                    <input type="password" name="password" class="form-control password pwStrength" id="password" placeholder="Password" title="Please enter a valid password" required="" maxlength="10" aria-required="true">
+
+                                </div>
+                            </div>
+
+                            <!-- Re-enter password -->
+                            <div class="row">
+                                <div class="form-group col-xs-12 has-feedback ">
+                                    <label class="sr-only" for="password">Re-enter Password</label>
+                                    <input type="password" name="conf_password" class="form-control password pwStrength" id="conf_password" placeholder="Re-enter Password" title="Please re-enter password" required="" maxlength="10" aria-required="true">
+                                </div>
+                            </div>
+
+                            <!--/.row-->
+                            <div class="row">
+                                <div class="form-group check-group col-xs-12 has-feedback ">
+                                    <div class="checkbox clearfix">
+                                        <input id="terms" name="terms" class="form-control" type="checkbox" title="Please review and agree to the terms and conditions" required="required" value="1" aria-required="true">
+                                        <label for="terms" class="check-dec">
+                                           By clicking <a href="<?= $this->createAbsoluteUrl('/login'); ?>" target="_blank">Login</a> or  <a href="<?= $this->createAbsoluteUrl('/signup'); ?>" target="_blank">Join</a>, I agree that I am 18+ or 14+ and have parent/guardian consent & I’ve read and agree to the <a href="<?= $this->createAbsoluteUrl('/TermsCondition'); ?>" target="_blank">Terms & Conditions</a>  &amp; <a href="<?= $this->createAbsoluteUrl('/privacy') ?>" target="_blank">Privacy Collection Statement</a> for SportsPass.
+                                        </label>
+                                    </div>
+                                    <label id="termError" for="terms" class="error "></label>
+                                </div>
+                                <!--/.form-group-->
+                            </div>
+                            <!--/.row-->
+
+                            <div class="row">
+                                <div class="col-md-12 mobile-centered">
+                                    <div class="form-group text-center">
+                                        <input type="hidden" name="acctid" value="<?= Yii::app()->params['program'] ?>">
+                                        <input type="submit" class="btn btn-primary btn-lg" value="Join Now"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!--.signUpForm-->
+                </div>
+                <!--/.col-xs-7-->
+
+            </div>
+        </div>
+    </div>
+</div>

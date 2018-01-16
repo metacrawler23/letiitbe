@@ -1,0 +1,103 @@
+<div class = "inner-page instore-shop">
+    <section class = "banner-container" style = "background:url(./img/placeholders/sample-banner.jpg) center top no-repeat; background-size:cover;">
+        <div class = "container">
+                <div class = "col-md-9 col-sm-12 col-xs-12 copy-container">
+                    <h1> Welcome to <br> SportsPass...</h1>
+                    <br/>
+                    <h5 style="margin-bottom: 5px">and your SportsCash eWallet</h5>
+                    <h5 style="margin-top: 5px">Reward, earn, experience, share</h5>
+                    <div class="discover_link">
+                        <a href="#">_Discover more</a>
+                    </div>
+                </div>
+                <!-- displays logo if there is slug in the url -->
+                <div class = "col-md-3 col-sm-3 col-xs-3 logo-container">
+                    <img src="img/placeholders/club-logo/sample-clublogo.jpg" alt="" />
+                </div>
+
+                <div class = "col-md-7 dashboard-container ">
+                        <div e-wallet-directive=""></div>
+                </div>
+        </div>
+    </section>
+
+        <section>
+            <div class = "container">
+                <div class = "ad-scroller" >
+                    <div ng-controller="bannerAdsCarouselCtrl" >
+                      <div id = "ambassador-slider" banner-ads-carousel-directive="" class="owl-carousel" data-options="">
+                          <div banner-ads-carousel-item-directive="" ng-repeat="item in ::bannerAdsImages" class="item">
+                              <img src = "{{::item}}">
+                          </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section ng-controller="homeBoxesCtrl" class = "home-content">
+            <div  class="hot-offers-holder container clearfix">
+                <h3 id = "trendhotoffers" class = "text-center">Top Trending Hot Offers</h3>
+
+                    <div ng-repeat="item in ::trendingOffers" home-boxes-directive = ""  class="ho-tiles col-md-3 col-sm-4 col-xs-6">
+                        <div class="deals-box-outer2">
+                            <div class="flip-container">
+                                <div class="flipper sports-offers">
+                                    <div class="front" >
+                                        <img class="img-responsive" src = "{{::item}}">
+                                    </div>
+                                    <div class="back">
+                                        <div class="product-overlay"></div>
+                                            <a href="#" title="" onclick="document.getElementById('form-sp-tiles<?= $offers['id'] ?>').submit();">
+
+                                                <img class="img-responsive" src = "{{::item}}">
+
+                                                <div class="deal-info center">
+                                                    <h6> <?= $offers['name'] ?> </h6>
+
+                                                    <div class="btn btn-primary block center">
+                                                        View Deal
+                                                    </div>
+                                                </div>
+                                            </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+
+            <div class="hot-offers-holder container clearfix">
+                <h3 class = "text-center">Top Trending Experiences</h3>
+
+                    <div ng-repeat="item in ::trendingExperiences" home-boxes-directive = ""  class="ho-tiles col-md-3 col-sm-4 col-xs-6">
+                        <div class="deals-box-outer2">
+                            <div class="flip-container">
+                                <div class="flipper sports-offers">
+                                    <div class="front">
+                                        <img class="img-responsive" src = "{{::item}}">
+                                    </div>
+                                    <div class="back">
+                                        <div class="product-overlay"></div>
+                                            <a href="<?= $exp['url'] ?>" target="<?= $target ?>" title="<?= $exp['name'] ?>" class="hotoffers" data-id="<?= $exp['id'] ?>">
+
+                                                <img class="img-responsive" src = "{{::item}}">
+                                                <div class="deal-info center">
+                                                    <h6> <?= $exp['name'] ?> </h6>
+
+                                                    <div class="btn btn-primary block center">
+                                                        View Deal
+                                                    </div>
+                                                </div>
+                                                <!--  <p class="deal-bc"> <?= $exp['name'] ?> </p> -->
+                                            </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+
+        </section>
