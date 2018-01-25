@@ -1,0 +1,62 @@
+<div class="card-flip-container">
+    <div class="card-flipper">
+        <div class="card-front">
+            <img src="{{clubs.image}}" alt="{{clubs.name}}" class="" style="width: 100%" />
+        </div>
+        <div class="card-back">
+
+            <!-- Modal content-->
+            <div class="modal-content" style="text-align: center">
+
+                <div class="modal-body">
+                    <img class="banner_img" src="{{clubs.image}}" style="max-width:100%;display:none;">
+
+                    <div class="dynamic-form-header">
+                        <span>No Text</span>
+                    </div>
+
+                    <div class="card-container clearfix">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 avatar-holder"><img width="100%" src="{{member.avatar}}"></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 logo-holder"><img src="{{clubs.logo}}"></div>
+                        </div>
+                        <div id='card-details' class='row card-details'>
+
+                            <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6">Association</p>
+                            <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><strong>{{clubs.name}}</strong></p>
+
+
+
+                            <p ng-repeat="cardDetail in cardData" class="col-lg-6 col-md-6 col-sm-6 col-xs-6">{{cardDetail}}</p>
+
+                            <angular-barcode ng-model="member.barCode" bc-options="barCodeOptions" bc-class="barcode" bc-type="canvas"></angular-barcode>
+                            <p class="barcode-number-holder"></p>
+
+                        </div>
+                        <div class="card-modal-buttons">
+
+                            <button download-card-image="" class="btn btn-primary download-club-card">Download</button>
+                            <button print-card-image="" class="btn btn-primary print-club-card">Print</button>
+
+                        </div>
+                    </div>
+
+                    <div class="dynamic-form-footer">
+                        <span>No Text</span>
+                    </div>
+                    <div style = "display:none"><img class = "print-holder"></div>
+
+
+                     <!-- <div class='card-container clearfix'>
+                         <div class='row'>
+                             <img width='100%' src='"+image+"'>
+                         </div>
+                    </div> -->
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

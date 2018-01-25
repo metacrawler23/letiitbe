@@ -9,23 +9,13 @@
   "ignore": [
     "**/.*",
     "**/tsconfig.json",
+    "**/tsconfig.typedoc.json",
     "**/webpack.config.js",
     "**/node_modules",
-    "**/ng2*",
-    "**/typings",
-    "commonjs",
-    "bower_components",
-    "component.json",
     "package.json",
-    "lib",
-    "config",
-    "sample",
+    "scripts",
     "test",
-    "tests",
-    "ngdoc_assets",
-    "Gruntfile.js",
-    "files.js"
+    "src"
   ],
-  "version": "1.0.0-beta.3",
-  "homepage": "https://ui-router.github.io"
+  "version": "1.0.13"
 }

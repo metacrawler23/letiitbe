@@ -14,9 +14,10 @@
 angular
 .module('app', [
   'ui.router',
+  'ui.bootstrap',
   'oc.lazyLoad',
-  // 'ncy-angular-breadcrumb',
-  'angular-loading-bar'
+  'angular-loading-bar',
+  'angular-barcode'
 ])
 // .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
 //   cfpLoadingBarProvider.includeSpinner = false;

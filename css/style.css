@@ -2330,7 +2330,7 @@ div[class*="col-"] .product-block-inhouse {
     margin: 0 5px;
     font-size: 12px
 }
-#card-modal .modal-close-icon,
+.card-modal .modal-close-icon,
 #imagemodal .modal-close-icon {
     background: url(../images/icons/sprite.png) no-repeat;
     background-position: -3px -3px;
@@ -2445,7 +2445,7 @@ div[class*="col-"] .product-block-inhouse {
 }
 
 /* Card Modal*/
-#card-modal.fade-scale {
+.card-modal.fade-scale {
 
     opacity: 0;
     -webkit-transition: all 0.5s;
@@ -2453,7 +2453,7 @@ div[class*="col-"] .product-block-inhouse {
     transition: all 0.5s;
 }
 
-#card-modal.fade-scale.in {
+.card-modal.fade-scale.in {
 
     opacity: 1;
 }
@@ -2485,8 +2485,8 @@ div[class*="col-"] .product-block-inhouse {
 }
 
 
-#card-modal.fade-scale.in .card-flipper,
-#card-modal.fade-scale.in .card-flipper {
+.card-modal.fade-scale.in .card-flipper,
+.card-modal.fade-scale.in .card-flipper {
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
     -o-transform: rotateY(180deg);
@@ -2531,31 +2531,31 @@ div[class*="col-"] .product-block-inhouse {
     border-color: #ccc !important;
     outline: #ccc !important;
 }
-#card-modal .modal-dialog {
+.card-modal .modal-dialog {
     width: 375px;
     margin: 30px auto;
     display: block;
 }
-#card-modal .modal-content {
+.card-modal .modal-content {
     width: 375px;
     margin: 0 auto;
     border-radius: 15px;
-    overflow: hidden;
+    /*overflow: hidden;*/
     background: none;
     border:0;
 }
-#card-modal  .modal-body {
+.card-modal  .modal-body {
     padding:0px;
 }
-#card-modal .card-container {
+.card-modal .card-container {
     padding: 20px 25px;
     background: #fff;
 }
-#card-modal .barcode-holder {
+.card-modal .barcode-holder {
     width: 95%;
     margin: 0 auto;
 }
-#card-modal .dynamic-form-header {
+.card-modal .dynamic-form-header {
     background-color: #4CBCF2;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -2563,21 +2563,21 @@ div[class*="col-"] .product-block-inhouse {
     padding: 5px 0;
     border-bottom: 2px solid #5bcbf3;
 }
-#card-modal .dynamic-form-footer {
+.card-modal .dynamic-form-footer {
     background:#000;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     padding: 5px 0;
     border-top: 2px solid #5bcbf3;
 }
-#card-modal .card-modal-buttons {
+.card-modal .card-modal-buttons {
     width: 250px;
     margin: 0 auto;
 }
-#card-modal  .dynamic-form-footer span, #card-modal .dynamic-form-header span {
+.card-modal  .dynamic-form-footer span, .card-modal .dynamic-form-header span {
     opacity: 0;
 }
-#card-modal .card-details p {
+.card-modal .card-details p {
     font-size: 13px;
     text-align: left;
     padding: 0;
@@ -2586,37 +2586,37 @@ div[class*="col-"] .product-block-inhouse {
 .row.card-details {
     padding: 20px 15px 10px;
 }
-#card-modal  .barcode-holder {
+.card-modal  .barcode-holder {
     margin-top:10px;
 }
-#card-modal  .barcode-number-holder {
+.card-modal  .barcode-number-holder {
     text-align: center !important;
     width: 100%;
     margin-top: 5px;
 }
 
-#card-modal .update-card label {
+.card-modal .update-card label {
     text-align: left;
     display: block;
     font-size: 12px;
     font-weight: 600;
 }
-#card-modal .update-card  .club-name {
+.card-modal .update-card  .club-name {
     font-size: 16px;
     margin-top: 0;
     margin-bottom: 18px;
 }
-#card-modal .update-card .tooltip-element {
+.card-modal .update-card .tooltip-element {
     display:none !important;
 }
-#card-modal .modal-close {
+.card-modal .modal-close {
     width: 40px;
 }
-#card-modal .logo-holder{
+.card-modal .logo-holder{
     /*position: relative;*/
     height: 148px;
 }
-#card-modal .logo-holder img {
+.card-modal .logo-holder img {
     position: relative;
     top: 50%;
     transform: translate(0, -50%);
@@ -7032,7 +7032,7 @@ p.pro-label {
             min-height: 250px;
     }
     #imagemodal .modal-body,
-    #card-modal .modal-body{
+    .card-modal .modal-body{
         padding: 10px 1px;
     }
     #signup-layout .form-group {
@@ -7279,11 +7279,11 @@ p.pro-label {
     .prodsuggest-container {
         padding:10px;
     }
-    #card-modal .modal-content,
-    #card-modal .modal-dialog{
+    .card-modal .modal-content,
+    .card-modal .modal-dialog{
         width:100%;
     }
-    #card-modal .card-details p{
+    .card-modal .card-details p{
         font-size:12px;
     }
     .account-setup-wrapper .subdesc{

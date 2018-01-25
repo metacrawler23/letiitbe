@@ -1,0 +1,37 @@
+<div class="newly-added addcard-container text-center">
+    <div class="club-card">
+        <a href="javascript:;" class="club-card-header">
+            <img class="img-responsive" src="{{selectedClub.image}}">
+
+        </a>
+        <div class="dynamic-form-wrapper">
+
+            <div class="dynamic-form-header">
+                <span>No Text</span>
+            </div>
+            <h4 class="club-name">{{selectedClub.name}}</h4>
+            <div id="render-form" class="collapse">
+                <form class="render-wrap text-left" role="form">
+
+                </form>
+                <div class="dynamic-card-wrapper clearfix">
+                    <span class="avatar pull-left" style="display: none;margin-top: 20px;">
+                        <img src="" width="80px" alt="placeholder" style="margin: 0 auto;display: block;"/>
+                    </span>
+                </div>
+                <div class = 'card-barcode-image'></div>
+
+                <!-- <img class="card-barcode-image" src="" style="width: 80%;margin: 0 auto 10px;display: block;" />
+                <span class="card-barcode"></span> -->
+            </div>
+
+
+            <!-- <button class='btn btn-primary mb-20' data-toggle='collapse' data-club='"+$this.val()+"' data-form='"+JSON.stringify(form)+"' data-target='#render-form-"+$this.find('option:selected').data('club')+"'>Create Card</button> -->
+            <create-card-form model="selectedClub" class='btn btn-primary mb-20'>Create Card</create-card-form>
+
+            <div class="dynamic-form-footer" style="margin-top: 10px">
+                <span>No Text</span>
+            </div>
+        </div>
+    </div>
+</div>
