@@ -1,0 +1,58 @@
+<div class="mt-20 container">
+    <div class="row">
+        <div class="ibox-title clearfix">
+            <div class ="tab-holder" id="dealtab1">
+                <ul>
+                    <li><a href="javascript:void(0)" data-type="alloffers" class="selected">All Offers</a></li>
+                    <li ng-repeat = "categoryItem in categories"><a  href="javascript:void(0)" data-type="spoffer" data-id="{{categoryItem.categoryID}}">{{categoryItem.categoryTitle}}</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="hot-offers-holder container">
+    <div class="row">
+        <div class="col-sm-12">
+                <div class="tabs-content clearfix">
+                    <div class="ibox-content no-padding-x">
+                        <!--Show Both Arrays -->
+                        <div class="row">
+                              <div ng-repeat = "relationsItem in relations" class="ho-tiles col-md-3 col-sm-4 col-xs-6">
+                                    <div ng-repeat="bannerItem in getBannerData(relationsItem)" class="deals-box-outer2">
+                                        <div class="flip-container">
+                                            <div class="flipper cash-deals">
+                                                <div class="front">
+                                                    <img class="img-responsive" src="{{ bannerItem.bannerImg }}"
+                                                         alt="{{ bannerItem}}">
+                                                </div>
+                                                <div class="back" onclick="">
+                                                    <div class="product-overlay"></div>
+                                                     <img class="img-responsive" src="{{ bannerItem.bannerImg }} "
+                                                     alt="{{ bannerItem.bannerTitle }}">
+                                                    <div class="deal-info">
+                                                        <h6> {{ bannerItem.bannerTitle }} </h6>
+                                                        <div class="summary text-capitalize pink">
+                                                            <?php echo $deal['offer_body']; ?>
+                                                        </div>
+                                                        <span> Valid until <?php echo $deal['offer_date'] ?> </span> <br>
+                                                        <span> <?php echo $deal['retailer_bonus_cash'] ?></span>
+                                                        <div class="btn btn-primary block center" style="margin-top: 10px;">
+                                                            View Deal
+                                                        </div>
+                                                    </div>
+                                                   <!--  <p class="deal-bc"> <?php echo $deal['retailer_bonus_cash'] ?> </p> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+
+                         <!-- End Show Both Arrays -->
+
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

@@ -3,31 +3,22 @@
     <div class = "upper-nav clearfix" data-spy="affix" data-offset-top="200">
             <div class="container">
                 <ul class = "left-nav clearfix">
-                    <li class="sports-pass">
+                    <li class="bg-blue sports-pass">
                         <a href="https://sportspass.com.au/"  target = "_blank">
                             <img src = "./img/sportspass-blue.png">
                         </a>
                     </li>
 
-                    <li class = "bg-blue sports-cash">
+                    <!-- <li class = "sports-cash">
                         <a class="" href="<?= $BASE_URL ?>/">
                             <img alt = "Sports Pass Logo" src = "./img/sportscash-green.png">
                         </a>
-                    </li>
+                    </li> -->
 
                 </ul>
                 <ul class = "center-nav desktop-view">
-                    <!-- <?php if (Yii::app()->user->isGuest): ?> -->
-
-                    <li class = "out_menu" style = "display:none"><a ng-click="gotoElement('home')">HOME</a></li>
-                    <li class = "out_menu" style = "display:none"><a ng-click="gotoElement('join')">JOIN</a></li>
-                    <li class = "out_menu" style = "display:none"><a ng-click="gotoElement('about')">ABOUT</a></li>
-                    <li class = "out_menu" style = "display:none"><a ng-click="gotoElement('rewards')">REWARDS</a></li>
-                    <li class = "out_menu" style = "display:none"><a ng-click="gotoElement('sports')">SPORTS</a></li>
-                    <li class = "out_menu" style = "display:none"><a ng-click="gotoElement('contact')">CONTACT</a></li>
-
-                        <li><a ui-sref-active="active" ui-sref="app.register">JOIN NOW</a></li>
-                        <li><a ui-sref-active="active" ui-sref="app.login">LOGIN</a></li>
+                    <li><a href = "<?= $this->createAbsoluteUrl('/account/accountclub') ?>"> ADD CARD</a></li>
+                    <li><a href = "<?= $this->createAbsoluteUrl('login/logout') ?>">LOGOUT</a></li>
                 </ul>
             </div>
         </div>
@@ -59,12 +50,12 @@
                 <div class = "mainmnu">
                      <div id = "navbarCollapse" class = "collapse navbar-collapse" style="padding-left: 0px">
                             <ul class = "clearfix">
-                                 <li><a ng-click="gotoElement('home')">HOME</a></li>
-                                 <li><a ng-click="gotoElement('join')">JOIN</a></li>
-                                 <li><a ng-click="gotoElement('about')">ABOUT</a></li>
-                                 <li><a ng-click="gotoElement('rewards')">REWARD</a></li>
-                                 <li><a ng-click="gotoElement('sports')">SPORTS</a></li>
-                                 <li><a ng-click="gotoElement('contact')">CONTACT</a></li>
+                              <li><a ui-sref-active="active" ui-sref="app.hotoffers">HOT OFFERS</a></li>
+                              <li><a ui-sref-active="active" ui-sref="app.main">EXPERIENCES</a></li>
+                              <li><a ui-sref-active="active" ui-sref="app.main">BIRTHDAYS</a></li>
+                              <li><a ui-sref-active="active" ui-sref="app.main">MOVIES</a></li>
+                              <li><a ui-sref-active="active" ui-sref="app.main">TICKETS &amp; EVENTS</a></li>
+                              <li><a ui-sref-active="active" ui-sref="app.main">GIFT VOUCHERS</a></li>
                             </ul>
                     </div>
                 </div>

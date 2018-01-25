@@ -1,9 +1,27 @@
-<div id="scrollArea" ng-controller="ScrollCtrl">
+<!-- <div id="scrollArea" ng-controller="ScrollCtrl"> -->
 
 
 
 <!-- Navbar -->
-<div ng-include="'views/common/navbar.html'"></div>
+<!-- <div ng-include="'views/common/navbar.html'"></div> -->
+
+<!-- userCTRL - go to controller.js -->
+<div ng-controller="userCtrl">
+    <span ng-switch on="status">
+      <div ng-switch-when="loginned">
+          <div ng-include src="'views/common/navbar_login.html'">
+
+          </div>
+      </div>
+      <div ng-switch-default>
+          <div ng-include src="'views/common/navbar_logout.html'">
+
+          </div>
+      </div>
+    </span>
+</div>
+
+
 
 <div class="app-body">
     <!-- Navigation -->

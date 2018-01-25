@@ -1,18 +1,11 @@
 // controller.js
+
 angular
 .module('app')
-.controller('ScrollCtrl', ScrollCtrl);
+.controller('userCtrl', userCtrl);
 
-ScrollCtrl.$inject = ['$scope'];
-function ScrollCtrl($scope, $location, anchorSmoothScroll) {
 
-    $scope.gotoElement = function (eID){
-      // set the location.hash to the id of
-      // the element you wish to scroll to.
-      $location.hash('bottom');
-
-      // call $anchorScroll()
-      anchorSmoothScroll.scrollTo(eID);
-
-    };
-  };
+userCtrl.$inject = ['$scope','$rootScope'];
+  function userCtrl($scope, $rootScope) {
+      $rootScope.status = 'Logout';
+  }

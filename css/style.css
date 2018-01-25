@@ -3671,7 +3671,7 @@ Hot Deals Page
 .tab-holder ul li {
     display: inline-block;
     text-align: center;
-    margin: 6px 0;
+    margin: 6px 2px;
 }
 .tab-holder ul li a {
     padding: 10px 16px;

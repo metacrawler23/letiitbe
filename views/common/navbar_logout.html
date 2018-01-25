@@ -1,0 +1,74 @@
+<header>
+  <nav>
+    <div class = "upper-nav clearfix" data-spy="affix" data-offset-top="200">
+            <div class="container">
+                <ul class = "left-nav clearfix">
+                    <li class="bg-blue sports-pass">
+                        <a href="https://sportspass.com.au/"  target = "_blank">
+                            <img src = "./img/sportspass-blue.png">
+                        </a>
+                    </li>
+
+                    <!-- <li class = " sports-cash">
+                        <a class="" href="<?= $BASE_URL ?>/">
+                            <img alt = "Sports Pass Logo" src = "./img/sportscash-green.png">
+                        </a>
+                    </li> -->
+
+                </ul>
+                <ul class = "center-nav desktop-view">
+                    <!-- <?php if (Yii::app()->user->isGuest): ?> -->
+
+                    <li class = "out_menu" style = "display:none"><a ng-click="gotoElement('home')">HOME</a></li>
+                    <li class = "out_menu" style = "display:none"><a anchor-smooth-scroll="join">JOIN</a></li>
+                    <li class = "out_menu" style = "display:none"><a ng-click="gotoElement('about')">ABOUT</a></li>
+                    <li class = "out_menu" style = "display:none"><a ng-click="gotoElement('rewards')">REWARDS</a></li>
+                    <li class = "out_menu" style = "display:none"><a ng-click="gotoElement('sports')">SPORTS</a></li>
+                    <li class = "out_menu" style = "display:none"><a ng-click="gotoElement('contact')">CONTACT</a></li>
+
+                        <li><a ui-sref-active="active" ui-sref="app.register">JOIN NOW</a></li>
+                        <li><a ui-sref-active="active" ui-sref="app.login">LOGIN</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class = "lower-nav clearfix">
+            <div class="container">
+                <!-- transfers icons  on mobile -->
+                <ul class = "clearfix" id = "transferhere"></ul>
+
+               <div class = "left-nav">
+                    <div class="navbar-header">
+
+                        <button id = "butclick" type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                    </div>
+
+                </div>
+               <ul class = "right-nav">
+                   <li>
+                        <img class = "header-logo" src = "./img/header-sportscash.png">
+                    </li>
+                </ul>
+
+                <div class = "mainmnu">
+                     <div id = "navbarCollapse" class = "collapse navbar-collapse" style="padding-left: 0px">
+                            <ul class = "clearfix">
+                                 <li><a ng-click="gotoElement('home')">HOME</a></li>
+                                 <li><a anchor-smooth-scroll="join">JOIN</a></li>
+                                 <li><a anchor-smooth-scroll="about">ABOUT</a></li>
+                                 <li><a anchor-smooth-scroll="rewards">REWARD</a></li>
+                                 <li><a anchor-smooth-scroll="sports">SPORTS</a></li>
+                                 <li><a anchor-smooth-scroll="contact">CONTACT</a></li>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

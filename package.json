@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/metacrawler23/letiitbe#readme",
   "dependencies": {
-    "angular-barcode": "^2.0.1"
+    "angular-barcode": "^2.0.1",
+    "angular-scroll": "^1.0.2"
   }
 }
