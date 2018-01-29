@@ -2,28 +2,35 @@ angular
 .module('app')
 .controller('homeBoxesCtrl', homeBoxesCtrl);
 
-homeBoxesCtrl.$inject = ['$scope'];
-function homeBoxesCtrl($scope) {
-   $scope.trendingOffers = [
-     './img/placeholders/home-boxes/macas.png',
-     './img/placeholders/home-boxes/macas2.png',
-     './img/placeholders/home-boxes/macas3.png',
-     './img/placeholders/home-boxes/macas4.png',
-     './img/placeholders/home-boxes/macas5.png',
-     './img/placeholders/home-boxes/macas6.png',
-     './img/placeholders/home-boxes/macas7.png',
-     './img/placeholders/home-boxes/macas8.png',
-    ];
+homeBoxesCtrl.$inject = ['$scope','BannerService'];
+function homeBoxesCtrl($scope,BannerService) {
 
-    $scope.trendingExperiences = [
-      './img/placeholders/home-boxes/macas.png',
-      './img/placeholders/home-boxes/macas2.png',
-      './img/placeholders/home-boxes/macas3.png',
-      './img/placeholders/home-boxes/macas4.png',
-      './img/placeholders/home-boxes/macas5.png',
-      './img/placeholders/home-boxes/macas6.png',
-      './img/placeholders/home-boxes/macas7.png',
-      './img/placeholders/home-boxes/macas8.png',
-     ];
+
+     $scope.getBanner = function() {
+
+         BannerService.getBannerDefault().then(function(response){
+          $scope.defBanners = response.data;
+
+          console.log($scope.defBanners);
+         });
+
+
+         BannerService.getBannerTrendingOffers().then(function(response){
+          $scope.trendingOffers = response.data;
+
+          console.log($scope.trendingOffers);
+         });
+
+         BannerService.getBannerTrendingExperience().then(function(response){
+          $scope.trendingExperiences = response.data;
+
+          console.log($scope.trendingExperiences);
+         });
+
+
+     }
+
+     $scope.getBanner();
+
 
 }

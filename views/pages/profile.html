@@ -1,0 +1,1402 @@
+
+<div class="page-title center">
+    <div class="container">
+        <h1> <?php echo $account->firstname ?>'s Profile </h1>
+        <span class="strip-divider gray"></span>
+        <p>
+            To update your personal information simply click on edit button and enter your new details in the sections
+            below and Save
+        </p>
+    </div>
+</div>
+<?php // echo "<pre>"; print_r($favorite_retailers); echo "</pre>"; ?>
+<div class="spinner-bg"></div>
+<div id="spinner" class="spinner" style="display:none;">
+    <img id="img-spinner"
+         src="<?php echo Yii::app()->request->baseUrl ?>/themes/luckybuys/views/join/calender/ajax-loader.gif"
+         alt="Loading">
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 hidden-sm hidden-xs">
+            <div id="myNav" class="side-navigation">
+                <div class="side-nav-categories">
+                    <ul class="profile-categ">
+                        <li>
+                            <span>
+                                <a href="javascript:;" data-id="#top"><i class="fa fa-user"> </i> Personal Information </a>
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                <a href="javascript:;" data-id="#sportspass-cards"><i class="fa fa-credit-card "> </i> My SportsPass Cards</a>
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                <a href="javascript:;"
+                                   data-id="#bonus-cash">
+                                    <i class="customicon2-donation"></i>
+                                    <?php echo UtilityFunctions::getProgramCurrencyName('[currency_name]'); ?>
+                                </a>
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                <a href="javascript:;"
+                                   data-id="#redeem-offers">
+                                    <i class="fa fa-gift"> </i>
+                                    Redemption Options
+                                </a>
+                            </span>
+                        </li>
+
+                        <li>
+                            <span>
+                                <a href="javascript:;" data-id="#fav-retailers"><i class="fa fa-heart"> </i> Favourite Retailers </a>
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                <a href="javascript:;" data-id="#wishlist-products"><i class="customicon3-wishlist"> </i> Wishlist Products</a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-9">
+            <form name="profile_frm" class="form-horizontal form-personal-info" method="post" action="">
+                <div class="ibox personal-content" id="top">
+                    <?php
+                        $FlashMsg = Yii::app()->user->getFlashes();
+                        if ($FlashMsg) {
+                            foreach ($FlashMsg as $flashClass => $message) {
+                                if ($flashClass == 'error') {
+                                    $flashClass = 'alert-danger';
+                                }
+                                if ($flashClass == 'success') {
+                                    $flashClass = 'alert-info';
+                                }
+
+                                echo '<div class="alert ' . $flashClass . '">' . $message . '</div>';
+                            }
+                        }
+
+                        if (isset($error)) {
+                            if ($error) {
+                                echo '<div class="alert alert-danger">' . $message . '</div>';
+                            } else {
+                                echo '<div class="alert alert-info">' . $message . '</div>';
+                            }
+                        }
+                    ?>
+                    <div class="ibox-title ibox-profile-title ">
+                        <h5><i class="fa fa-user"> </i> Personal Information </h5>
+                        <div class="ibox-tools m-r-md">
+
+                                <a href="javscript:;"
+                                   class="enable-personal-profile">
+                                    <i class="fa fa-edit purple"> </i>
+                                    Edit
+                                </a>
+
+                        </div>
+                    </div>
+                    <div class="ibox-content clearfix">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">
+                                    First Name
+                                </label>
+                                <div class="col-md-8">
+                                    <input class="form-control personal-profile"
+                                           type="text"
+                                           value="<?php echo $account->firstname ?>"
+                                           name="data[firstname]"
+                                           readonly
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-4">
+                                    Email
+                                </label>
+                                <div class="col-md-8">
+                                    <input class="form-control"
+                                           type="text"
+                                           value="<?php echo $account->email ?>"
+                                           name="data[email]"
+                                           readonly
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-4">
+                                    Mobile Number
+                                </label>
+                                <div class="col-md-8">
+                                    <input class="form-control"
+                                           type="text"
+                                           value="<?php echo $account->mobile ?>"
+                                           name="data[mobile]"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">
+                                    Last Name
+                                </label>
+                                <div class="col-md-8">
+                                    <input class="form-control personal-profile" type="text"
+                                           value="<?php echo $account->lastname ?>" name="data[lastname]" readonly/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-4">
+                                    Date of Birth
+                                </label>
+                                <div class="col-md-8">
+                                    <input class="form-control dob personal-profile" type="text"
+                                           value="<?php echo $account->dob ?>" name="data[dob]" readonly/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 align-right">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">
+                                    &nbsp;
+                                </label>
+                                <div class="col-md-8">
+                                    <a class="btn btn-primary" href="javascript:;"
+                                       onclick="document.profile_frm.submit();"> <i class="fa fa-save"> </i> &nbsp; Save
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ibox personal-password-content">
+                    <div class="ibox-title ibox-profile-title ibox-profile-title">
+                        <h5><i class="fa fa-lock"> </i> Update Password </h5>
+                        <div class="ibox-tools m-r-md m-r-md">
+
+                                <a href="javascript:;"
+                                   class="enable-personal-password">
+                                    <i class="fa fa-edit purple"> </i> Edit </a>
+
+                        </div>
+                    </div>
+                    <div class="ibox-content clearfix">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">
+                                    Current Password
+                                </label>
+                                <div class="col-md-8">
+                                    <input class="form-control personal-password"
+                                           type="password"
+                                           name="oldpassword"
+                                           readonly
+                                    />
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">
+                                    New password
+                                </label>
+                                <div class="col-md-8">
+                                    <input class="form-control personal-password"
+                                           type="password"
+                                           name="newpassword"
+                                           readonly
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">
+                                    Re enter new password
+                                </label>
+                                <div class="col-md-8">
+                                    <input class="form-control personal-password"
+                                           type="password"
+                                           name="renewpassword"
+                                           readonly
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 align-right">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">
+                                    &nbsp;
+                                </label>
+                                <div class="col-md-8">
+                                    <a class="btn btn-primary" href="javascript:;"
+                                       onclick="document.profile_frm.submit();"> <i class="fa fa-save"> </i> &nbsp; Save
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="ibox personal-address-content m-b-none">
+                    <div class="ibox-title ibox-profile-title">
+                        <h5><i class="fa fa-home"> </i> Your Address </h5>
+                        <div class="ibox-tools m-r-md">
+
+                                <a href="javascript:;" class="enable-personal-address"> <i
+                                            class="fa fa-edit purple"> </i> Edit </a>
+
+                        </div>
+                    </div>
+                    <div class="ibox-content clearfix">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">
+                                    Street 1
+                                </label>
+                                <div class="col-md-8">
+                                    <input class="form-control personal-address" type="text"
+                                           value="<?php echo $account->street1 ?>" name="data[street1]" readonly/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4">
+                                    City
+                                </label>
+                                <div class="col-md-8">
+                                    <input class="form-control personal-address" type="text"
+                                           value="<?php echo $account->suburb ?>" name="data[suburb]" readonly/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4">
+                                    Post Code
+                                </label>
+                                <div class="col-md-8">
+                                    <input class="form-control personal-address" type="text"
+                                           value="<?php echo $account->postcode ?>" name="data[postcode]" readonly/>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">
+                                    Street 2
+                                </label>
+                                <div class="col-md-8">
+                                    <input class="form-control personal-address" type="text"
+                                           value="<?php echo $account->street2 ?>" name="data[street2]" readonly/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4">
+                                    State
+                                </label>
+                                <div class="col-md-8">
+                                    <select class="form-control personal-address" name="data[state]" readonly>
+                                        <option <?php if ($account->state == 'VIC') echo 'selected="selected"'; ?>
+                                                value="VIC">VIC
+                                        </option>
+                                        <option <?php if ($account->state == 'NSW') echo 'selected="selected"'; ?>
+                                                value="NSW">NSW
+                                        </option>
+                                        <option <?php if ($account->state == 'QLD') echo 'selected="selected"'; ?>
+                                                value="QLD">QLD
+                                        </option>
+                                        <option <?php if ($account->state == 'ACT') echo 'selected="selected"'; ?>
+                                                value="ACT">ACT
+                                        </option>
+                                        <option <?php if ($account->state == 'SA') echo 'selected="selected"'; ?>
+                                                value="SA">SA
+                                        </option>
+                                        <option <?php if ($account->state == 'WA') echo 'selected="selected"'; ?>
+                                                value="WA">WA
+                                        </option>
+                                        <option <?php if ($account->state == 'TAS') echo 'selected="selected"'; ?>
+                                                value="TAS">TAS
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group" style="display: none;">
+                                <label class="control-label col-md-4">
+                                    Country
+                                </label>
+                                <div class="col-md-8">
+                                    <input class="form-control" type="text" value="AU" name="data[country]"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 align-right">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">
+                                    &nbsp;
+                                </label>
+                                <div class="col-md-8">
+                                    <a class="btn btn-primary" href="javascript:;"
+                                       onclick="document.profile_frm.submit();"> <i class="fa fa-save"> </i> &nbsp; Save
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+
+<!--        <div class="ibox personal-address-content m-b-none">
+                <div class="ibox-title ibox-profile-title">
+                    <h5><i class="fa fa-home"> </i> Clubs </h5>
+                    <div class="ibox-tools m-r-md">
+                        <div class="form-group">
+                            <a href="javascript:;" class="enable-club"> <i
+                                        class="fa fa-edit purple"> </i> Edit </a>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+<!--
+            <div class="ibox personal-address-content m-b-none">
+                <div class="ibox-title ibox-profile-title">
+                    <h5><i class="fa fa-home"> </i> Club Account Card </h5>
+                    <div class="ibox-tools m-r-md">
+                        <div class="form-group">
+                            <a href="<?= $this->createAbsoluteUrl('/account/accountclub') ?>" >
+                                <i class="fa fa-plus purple"> </i> Add
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="ibox ibox-profile alternate" id="sportspass-cards">
+                <div class="ibox-title ibox-profile-title">
+                    <h5>
+                        <i class="fa fa-credit-card "> </i> My SportsPass Cards
+                    </h5>
+                    <div class="ibox-tools m-r-md">
+                        <div class="form-group">
+                           <!--  <a href="/transactionhistory"> <i class="fa fa-eye purple"> </i> View Transaction History</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-content clearfix no-padding-x">
+                    <div class="row">
+
+                        <form class="form-horizontal" role="form" name="club-donation-form">
+                            <div class="row">
+                                <div class="ibox-content clearfix no-padding-x">
+                                    <div class="row card-holders">
+
+
+                                        <?php
+                                        $card = SportsPassAccountCard::getCardByAccountId($account->id);
+                                        if ($card) :
+
+
+
+                                                foreach ($card as $key => $value) :
+                                                    array_push($cardID, $value['club_id']);
+                                                    $club = SportsPassClub::model()->findByPk($value['club_id']);
+
+                                                    ?>
+                                                    <div class="addcard-container text-center mb-20">
+                                                        <a href="javascript:;"
+                                                           class="image-preview-modal">
+                                                            <img src="<?= $club['banner_image'] ?>"
+                                                                 alt=""
+                                                                 class="account-<?= $value['id'] ?>"
+                                                                 style="width: 100%"/>
+                                                        </a>
+                                                        <br/>
+                                                        <h3 style="display: none;"><?= SportsPassClub::getClubNameById($value['club_id']) ?></h3>
+                                                        <!--                            <a href="javascript:;" class="btn btn-primary card-modal" data-toggle="modal" data-target="#card-modal" data-name="--><?//= SportspassClubMembers::getNameById($value['sp_member_id']) ?><!--" data-email="--><?//= $account->email ?><!--" data-image="--><?//= $value['card'] ?><!--" data-id="--><?//= $value['id'] ?><!--" data-club="--><?//= $value['club_id'] ?><!--">View Card</a>-->
+                                                        <a href="javascript:;" class="btn btn-primary card-modal" data-club-id="<?= $value['club_id'] ?>" data-member-number = "<?= SportsPassClubMembers::getMemberMemberNumber($value['sp_member_id']) ?>" data-banner-image = "<?= $club['banner_image'] ?>" data-name="<?= SportsPassClub::getClubNameById($value['club_id']) ?>" data-card='<?= SportsPassClubMembers::getMemberCardData($value['sp_member_id']) ?>' data-avatar="<?= SportsPassAccountCard::getAvatarById($value['sp_member_id']) ?>" data-club-logo="<?= SportsPassClub::getClubLogoById($value['club_id']) ?>">
+                                                            View Card
+                                                        </a>
+
+                                                    </div>
+
+
+                                        <?php
+
+                                                endforeach;
+                                           endif;
+                                        ?>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="ibox ibox-profile alternate" id="bonus-cash">
+                <div class="ibox-title ibox-profile-title">
+                    <h5>
+                        <i class="customicon2-donation"> </i> <?php echo UtilityFunctions::getProgramCurrencyName('[currency_name]'); ?>
+                    </h5>
+                    <div class="ibox-tools m-r-md">
+                        <div class="form-group">
+                            <a href="/transactionhistory"> <i class="fa fa-eye purple"> </i> View Transaction History</a>
+                        </div>
+                    </div>
+                </div>
+                <?php
+                $this::userTotalMinusBonusCash();
+                $this::userBonusCashDonated();
+                $this::userTotalBonusCash();
+                if ($this->keptPercentage == 1) {
+                    $keptValue = UtilityFunctions::displayPrice(0);
+                } else if ($this->minustotal != NULl) {
+                    $keptValue = UtilityFunctions::displayPrice($this->totalDonated + $this->minustotal);
+                } else {
+                    $keptPercentageValue = 1 - $this->keptPercentage;
+                    $keptValue = UtilityFunctions::displayPrice($this->totalBC - $this->totalDonated);
+                }
+                ?>
+                <div class="ibox-content clearfix no-padding-x">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-sm-6 text-left balance-box">
+                                    <div class = "balance-holder clearfix">
+                                        <div> <p> Your SportsCash Balance </p> </div>
+                                        <div class="balance-text"><p><?php echo $keptValue; ?> </p> </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 text-left balance-box">
+                                    <div class = "balance-holder clearfix">
+                                        <div> <p> SportsCash contributed to your chosen club </p></div>
+                                        <div class="balance-text"><p><?php echo UtilityFunctions::displayPrice($this->totalDonated); ?></p> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-content clearfix no-padding-x" style = "padding-bottom: 0;">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>If you would like to contribute a percentage of your SportsCash to support a club/organisation,  select the club below and nominate the percentage that you would like to contribute.</p>
+
+                            <p>This is optional, so you do not have to nominate a club if you would prefer to keep all the SportsCash you create.</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-content clearfix no-padding-x">
+                    <div class="row">
+
+
+                        <form name="club-option-form" class="form-vertical" method="post" action="">
+                            <div class="form-group clearfix">
+                                <div class="col-md-6">
+
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Select the club you would like to <br> contribute your SportsCash to
+                                        </label>
+                                        <br>
+                                        <?php
+                                        $selected = [];
+                                        $accountClubs = AccountMisc::model()->findAll("account_id = :account AND has_donation = 1", [':account' => $account->id]);
+
+                                        if ($accountClubs) {
+
+                                            foreach ($accountClubs as $accntClub) {
+                                                $selected[$accntClub['club_id']] = ['selected' => 'selected'];
+                                            }
+                                        }
+
+                                        $clubs = CHtml::listData(SportsPassClub::model()->findAll("status = 1 ORDER BY club_name asc"), 'id', 'club_name');
+
+                                        echo CHtml::dropDownList('club_name', '', $clubs, [
+                                            'empty' => '- Select Clubs -',
+                                            'id' => 'clubs',
+                                            'class' => 'form-control balance-select',
+                                            'options' => $selected
+                                        ]);
+
+                                        ?>
+                                        <br/>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+
+                                            <label class="control-label" for="donation">
+                                                Select the percentage you would like <br> to contribute to your club
+                                            </label>
+                                            <select class="donation-select form-control balance-select" name="donation_percentage"
+                                                    title="Donation">
+                                                <option value="">0%</option>
+                                                <?php
+                                                    for ($c = 10; $c <= 100; $c += 10) {
+                                                        if (AccountMisc::getDonationPercent() == $c) {
+                                                            $selected = 'selected';
+                                                        } else {
+                                                            $selected = '';
+                                                        }
+
+                                                        echo '<option value="' . $c . '" ' . $selected . '>' . $c . '%</option>';
+                                                    }
+                                                ?>
+                                            </select>
+
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 align-right">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            &nbsp;
+                                        </label>
+                                        <div class="col-md-8">
+                                            <input type="hidden" name="account_id" value="<?= $account->id ?>"/>
+                                            <button type="submit" class="btn btn-primary"> <i class="fa fa-save"> </i> Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+
+            <!-- bonus cash redemption section -->
+            <div class="ibox ibox-profile alternate" id="redeem-offers">
+                <div class="ibox-title ibox-profile-title">
+                    <h5><i class="fa fa-gift"></i> Redemption Offers </h5>
+                </div>
+                <div class="ibox-content clearfix no-padding-x">
+                    <div class="redemp_section clearfix">
+                        <div class="share-left offers">
+                            <p class="share-info text-left m-t-lg m-b-xs">
+                                Your SportsCash can be redeemed against your registration fees for any of your SportsPass Clubs. Soon you will be able to do this automatically. We are really excited about adding this feature and will let you know as soon as it is available. In the mean time, if you would like to pay for your registration fees from your Sports Club please contact us and advise us how much and which club you would like to pay.
+                            </p>
+                        </div>
+                        <div class="share-right">
+                            <div class="row">
+                                <?php
+                                $redeemGiftCards = BonusCashRedeemGiftcards::model()->findAll(array('condition' => 'program_id = ' . Yii::app()->params['program'], "order" => "id ASC"));
+                                $redeemGiftCardArr = array();
+                                foreach ($redeemGiftCards as $redeemGiftCard) {
+                                    $giftCard = GiftCards::model()->find("status = 0 AND card_type = '{$redeemGiftCard->gift_card}' AND (card_value = FORMAT({$redeemGiftCard->gift_card_value}, 2) OR card_value = FORMAT({$redeemGiftCard->gift_card_value}, 0))");
+                                    if (!empty($giftCard)) {
+                                        $redeemGiftCardArr[] = $giftCard->id;
+                                    }
+                                }
+
+                                if (!empty($redeemGiftCardArr)) {
+                                    $availableRedeemCards = GiftCards::model()->findAll("id IN (" . implode(",", $redeemGiftCardArr) . ") AND deleted = 0");
+                                } else $availableRedeemCards = null;
+                                ?>
+                                <?php if (!empty($availableRedeemCards)) : ?>
+
+                                    <?php foreach ($availableRedeemCards as $key => $availableRedeemCard) : ?>
+                                        <?php $retailer = Retailer::model()->find("id = {$availableRedeemCard->retailer_id}"); ?>
+                                        <div class="col-md-4">
+                                            <div class="share-giftcard">
+                                                <div class="giftcard-header clearfix">
+                                                    <div class="giftcard-love">
+                                                        <span class="block"> $<?php echo $availableRedeemCard->card_value ?> </span>
+                                                    </div>
+
+                                                </div>
+                                                <div class="giftcard-image">
+                                                    <img src="<?php echo $retailer->logo_url ?>" alt="Placeholder"
+                                                         class="img-responsive"/>
+                                                </div>
+                                            </div>
+                                            <?php if (($this->totalDonated + $this->minustotal) >= $availableRedeemCard->card_value) : ?>
+                                                <a href="<?php echo $this->createAbsoluteUrl("/site/RedeemBonusCash/" . $availableRedeemCard->id); ?>"
+                                                   class="btn btn-primary block"
+                                                   onclick="return confirm('Redeem it?');">Redeem</a>
+                                            <?php else : ?>
+                                                <a href="" class="btn btn-primary block" disabled>Redeem</a>&nbsp;<i
+                                                        style="font-size:10px;">Insufficient Donation Dollars</i>
+                                            <?php endif ?>
+                                        </div>
+                                    <?php endforeach ?>
+
+                                <?php else : ?>
+                                    <div class="col-md-12">
+                                        <p class="alert alert-warning"> Alternatively you can select from any of the below vouchers.</p>
+                                    </div>
+                                <?php endif ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Travel Cash section -->
+            <div class="ibox ibox-profile alternate" id="travel-cash" style="display: none">
+                <div class="ibox-title ibox-profile-title">
+                    <h5><i class="tc-icon"></i> Travel Cash </h5>
+                    <?php if ($account->opt_travel_cash) : ?>
+                        <div class="ibox-tools m-r-md">
+                            <div class="form-group">
+                                <a href="#travelCash" data-toggle="modal"> <i class="fa fa-eye purple"> </i> View
+                                    History</a>
+                            </div>
+                        </div>
+                    <?php endif ?>
+                </div>
+                <div class="ibox-content clearfix no-padding-x">
+                    <?php if ($account->opt_travel_cash) : ?>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <dl class="dl-horizontal">
+                                    <dt> Total Earned Travel Cash:</dt>
+                                    <dd> $<?php echo round($travel_cash_earned['total']); ?> </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    <?php endif ?>
+
+                    <p class="profile-para">
+                        Your eligible Travel Cash is calculated on a calendar month basis and spend is not carried
+                        forward to the next month:<br/>
+                        To see your current Travel Cash Balance visit
+                        <a href="http://myrewards.justrewards.com.au/"
+                           target="_blank">
+                            <strong>http://myrewards.justrewards.com.au</strong>
+                        </a>
+                        <br/>
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- Already redeemed gift cards -->
+
+            <?php $accountDeductFees = AccountBonuscashEvents::model()->findAll("member_id = " . Yii::app()->user->id . " AND type = 'MINUS' ORDER BY created desc LIMIT 0,4");
+            if (!empty($accountDeductFees)) :
+                ?>
+
+
+                <div class="ibox ibox-profile alternate" id="redeem-offers">
+                    <div class="ibox-title ibox-profile-title">
+                        <h5><i class="mascot-icon"></i> Previously redeemed gift cards </h5>
+                        <div class="ibox-tools m-r-md">
+                            <div class="form-group">
+                                <a href="/transactionhistory" data-toggle="modal"> <i class="fa fa-eye purple"> </i>
+                                    View History</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ibox-content clearfix no-padding-x">
+                        <div class="redemp_section clearfix">
+
+                            <div class="share-right">
+                                <div class="row">
+                                    <?php foreach ($accountDeductFees as $accountDeductFee) :
+                                        $name = explode("|", $accountDeductFee->description); ?>
+                                        <div class="col-md-3">
+                                            <div class="share-giftcard">
+                                                <div class="giftcard-header clearfix">
+                                                    <div class="giftcard-image" style="text-align:center">
+                                                        <span class="block">  <?= date('d M Y', strtotime($accountDeductFee->created)); ?> </span>
+                                                    </div>
+
+                                                </div>
+                                                <div class="giftcard-image">
+                                                    <img src="https://s3-ap-southeast-2.amazonaws.com/cashrewardglobal/retailers/1434946166_20.png"
+                                                         alt="Placeholder" class="img-responsive"/>
+                                                </div>
+                                                <div class="giftcard-image" style="text-align:center">
+                                                    <?= $name[1] ?>
+                                                </div>
+                                            </div>
+                                            <a href="<?php echo $this->createAbsoluteUrl("/site/RedeemLink/" . $accountDeductFee->order_id); ?>"
+                                               class="btn btn-primary block"> Download </a>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <?php endif; ?>
+
+
+            <!-- Hide Temporary as per Task id "7841359" in Teamwork -->
+            <div class="ibox ibox-profile" id="share-the-love" style="display:none">
+                <div class="ibox-title ibox-profile-title">
+                    <h5><i class="fa fa-heart"> </i>Share the Love </h5>
+                </div>
+                <div class="ibox-content clearfix no-padding-x">
+                    <div class="share_section">
+                        <div class="share-left">
+                            <p class="share-info">
+                                Get freebies just by spreading the word about Independece Australia to your friends and
+                                family. For every person that you share the love with and enters your code when they
+                                sign up, you are reward with a (heart symbol). The more people that sign up using your
+                                share the love code the more freebies you get.
+                            </p>
+                            <div class="share-left-footer clearfix">
+                                <div class="love-code">
+                                    <span> Love Code </span>
+                                    <label class="label label-gray"> <?php echo $account->referral_code; ?> </label>
+                                </div>
+                                <div class="spread-word">
+                                    <span>  Spread the Word </span>
+                                    <div class="spread-social">
+                                        <?php
+                                        $serverUrl = ($_SERVER['HTTPS']) ? 'https://' . $_SERVER['SERVER_NAME'] : 'http://' . $_SERVER['SERVER_NAME'];
+                                        $share_url = $serverUrl . '/share/' . $account->referral_code;
+                                        ?>
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $share_url; ?>"
+                                           target="_blank">
+                                            <img src="/skin/gsn/images/icons/ico_fb.png" alt="Facebook"/>
+                                        </a>
+                                        <a href="https://twitter.com/home?status=<?php echo $share_url; ?>"
+                                           target="_blank">
+                                            <img src="/skin/gsn/images/icons/ico_tw.png" alt="Twitter"/>
+                                        </a>
+                                        <a href="https://pinterest.com/pin/create/button/?url=<?php echo $share_url; ?>&description="
+                                           target="_blank">
+                                            <img src="/skin/gsn/images/icons/ico_pin.png" alt="Pinterest"/>
+                                        </a>
+                                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo $share_url; ?>">
+                                            <img src="/skin/gsn/images/icons/icon-in.png" alt="LinkedIn"/>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="share-right">
+                            <div class="row">
+                                <?php
+                                $referralAwards = AccountReferralAwardRates::model()->findAll(array('order' => 'referral_reach ASC'));
+                                $award_gift_cards = array();
+                                foreach ($referralAwards as $referralAward) {
+                                    $giftCard = GiftCards::model()->find("card_type = '{$referralAward->gift_card}' AND (card_value = FORMAT({$referralAward->gift_card_value}, 2) OR card_value = FORMAT({$referralAward->gift_card_value}, 0))");
+                                    if (!empty($giftCard)) {
+                                        $award_gift_cards[] = array(
+                                            'award_id' => $referralAward->id,
+                                            'reach' => $referralAward->referral_reach,
+                                            'giftCard' => $giftCard
+                                        );
+                                    }
+                                }
+                                ?>
+                                <?php if (!empty($award_gift_cards)) : ?>
+                                    <?php foreach ($award_gift_cards as $award_gift_card) : ?>
+                                        <?php $retailer = Retailer::model()->find("id = {$award_gift_card['giftCard']->retailer_id}"); ?>
+                                        <div class="col-md-4">
+                                            <div class="share-giftcard">
+                                                <div class="giftcard-header">
+                                                    <div class="giftcard-love">
+                                                        <span> <?php echo $award_gift_card['reach'] ?> <i
+                                                                    class="fa fa-heart"> </i> </span>
+                                                    </div>
+                                                    <div class="giftcard-redeem">
+                                                        <span><a href="/site/convertAward/award/<?php echo $award_gift_card['award_id'] ?>">Redeem</a> </span>
+                                                    </div>
+                                                </div>
+                                                <div class="giftcard-image">
+                                                    <img class="img-responsive" src="<?php echo $retailer->logo_url ?>"
+                                                         alt="Placeholder"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endforeach ?>
+                                <?php else : ?>
+                                    <div class="col-md-12">
+                                        <p class="account-redeem-no-result"> We don't offer any redeem award at this
+                                            time, please come back later. </p>
+                                    </div>
+                                <?php endif ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- favourite retailers -->
+            <div class="ibox ibox-profile alternate" id="fav-retailers">
+                <div class="ibox-title ibox-profile-title clearfix">
+                    <h5><i class="fa fa-heart"> </i> Favourite Retailers</h5>
+                    <div class="ibox-tools m-r-md">
+                        <div class="form-group">
+                            <a class=""
+                               href="<?php echo $this->createAbsoluteUrl("/onlineshoppingcentre") ?>"
+                               title="online shopping centre " style="border-radius: 20px;"><i class="fa fa-search" aria-hidden="true"></i>
+                                Search Retailers To Add To Favourites
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-content clearfix">
+                    <?php if (!empty($favorite_retailers)) : ?>
+                        <?php foreach ($favorite_retailers as $deal) : ?>
+                            <?php $retailer = Retailer::model()->findByPk($deal->retailer_id);
+                            if ($retailer->active != 1) {
+                                continue;
+                            } ?>
+                            <div class="col-md-4 col-sm-6 col-sm-12" id="favorite-retailer-<?php echo $retailer->id; ?>">
+                                <div class="deals-box-outer">
+                                    <div class="flip-container">
+                                        <div class="flipper">
+                                            <div class="front">
+                                                <div class="deals-block">
+                                                    <a href="javascript:removeFavoriteRetailer(<?php echo $retailer->id; ?>);"
+                                                       class="add-favorite"><span
+                                                                class="glyphicon glyphicon-remove"></span></a>
+                                                    <div class="deal-logo">
+                                                        <img src="<?php echo $retailer->logo_url ?>"
+                                                             alt="<?php echo $retailer->name ?>"/>
+                                                    </div>
+                                                    <div class="deal-info">
+                                                        <div class="summary text-capitalize">
+                                                            <?php echo $retailer->name ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <p class="deal-bc"> <?php echo UtilityFunctions::retailerBonusCash($retailer, false) ?> </p>
+                                            </div>
+
+                                            <div class="back">
+                                                <div class="product-overlay"></div>
+                                                <div class="deal-logo">
+                                                    <img src="<?php echo $retailer->logo_url ?>"
+                                                         alt="<?php echo $retailer->name ?>"/>
+                                                </div>
+                                                <div class="deals-block no-bg">
+                                                    <div class="deal-info">
+                                                        <a href="javascript:removeFavoriteRetailer(<?php echo $retailer->id; ?>);"
+                                                           class="add-favorite"><span
+                                                                    class="glyphicon glyphicon-remove"></span>
+                                                        </a>
+                                                        <div class="deal-info">
+
+                                                            <div class="summary text-capitalize">
+                                                                <?php echo $retailer->name ?>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="btn btn-primary block center"
+                                                             style="margin-top: 10px;"
+                                                             onclick="window.location.href='<?php echo $this->createAbsoluteUrl("retailer/detail/" . UtilityFunctions::GetURLByName($retailer->name, $retailer->id)) ?>';">
+                                                            View Detail
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <p class="deal-bc"> <?php echo UtilityFunctions::retailerBonusCash($retailer, false) ?> </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <?php endforeach ?>
+                    <?php else : ?>
+
+                        <div class="ibox-title" style="text-align: left;">
+                            <p class=" align-left"><?php echo $account->firstname ?>, you haven't yet saved any of our
+                                retailers to your favourites. Click on the heart icon on any retailer to add. </p>
+                        </div>
+
+                    <?php endif ?>
+
+                </div>
+            </div>
+
+            <div class="ibox ibox-profile alternate" id="wishlist-products">
+                <div class="ibox-title ibox-profile-title clearfix">
+                    <h5><i class="customicon3-wishlist fa" style="left:-5px;"> </i> WishList Products</h5>
+                    <div class="ibox-tools m-r-md">
+                        <div class="form-group">
+                            <a class="" href="<?php echo $this->createAbsoluteUrl("/searchandcompare") ?>"
+                               title="Retailers" style="border-radius: 20px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                Shop our retailer products
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- wishlist-products -->
+                <?php $ProductWishLists = InhouseProductFavourites::model()->findAll('account_id = ' . Yii::app()->user->id); ?>
+
+                <div class="ibox-content clearfix no-padding-x">
+
+                    <?php if (empty($ProductWishLists)) : ?>
+                        <div class="ibox-title" style="text-align: left;">
+                            <p class=" align-left"><?php echo $account->firstname ?>, you can easily add any product you
+                                want from our Search and Compare page by selecting add to wishlist icon in the quickview
+                                or product information page. These products will stay in your wishlist for 30 days or
+                                unless the product is no longer available from that retailer. </p>
+                        </div>
+
+                        <div class="ibox-content clearfix no-padding-x">
+                            <a class="btn btn-primary"
+                               href="<?php echo $this->createAbsoluteUrl("/searchandcompare") ?>" title="Retailers">
+                                Shop our retailer products
+                            </a>
+                        </div>
+
+                    <?php else:
+
+                        foreach ($ProductWishLists as $ProductWishList) :
+                            $product = InhouseProducts::model()->findByPk($ProductWishList->product_id);
+                            $productImage = InhouseProductImages::model()->find("product_id = {$product->id}");
+                            $supplier = InhouseProductSuppliers::model()->findByPk($product->supplier);
+                        ?>
+
+                        <div class="profile-wish col-lg-4 col-md-4 col-sm-4 col-xs-6 col-xl-5 col-xl-8"
+                             id="wishProducts_<?php echo $product->id; ?>">
+                            <div class="product-block">
+                                <div class="flip-container clearfix">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <div class="product-image">
+                                                <img class="img-responsive"
+                                                     src="<?php echo $productImage->image ?>"
+                                                     alt="<?php echo $product->name ?>"
+                                                />
+                                            </div>
+                                                <a class="add-favorite"><span class="glyphicon glyphicon-remove"></span></a>
+                                                <!-- <span class="bonus-amount">
+                                                    <a class="inhouse-product-name"
+                                                       href="<?php echo $this->createAbsoluteUrl("products/detail/" . $product->id) ?>"
+                                                       title="view detail">
+                                                        <?php echo $product->name ?>
+                                                    </a>
+                                                </span>
+                                                <span class="product-name">
+
+                                                        <?php echo UtilityFunctions::getInhouseProductPriceWithCurrency($product); ?>
+                                                        <br>
+
+
+                                                 </span>
+                                                <span><p class="deal-bc"> <?= UtilityFunctions::getInhouseProductBonus($product) ?> </p></span> -->
+                                            <p class="product-name clearfix">
+                                                <?php echo $product->name ?>
+                                            </p>
+                                            <div class = "border-bottom"></div>
+                                            <span class="bonus-amount">
+                                                <?php echo UtilityFunctions::getInhouseProductPriceWithCurrency($product); ?>
+                                            </span>
+
+                                            <p class="deal-bc">
+                                                <?= UtilityFunctions::getInhouseProductBonus($product) ?>
+                                            </p>
+
+                                        </div>
+                                        <div class="back">
+                                            <div class="product-overlay"></div>
+                                            <div class="product-image">
+                                                <img class="img-responsive"
+                                                     src="<?php echo $productImage->image ?>"
+                                                     alt="<?php echo $product->name ?>"/>
+                                            </div>
+
+                                            <p class="product-name clearfix">
+                                                <?php echo $product->name ?>
+                                            </p>
+                                            <div class = "border-bottom"></div>
+                                            <span class="bonus-amount">
+                                                <?php echo UtilityFunctions::getInhouseProductPriceWithCurrency($product); ?>
+                                            </span>
+
+                                            <p class="deal-bc">
+                                                <?= UtilityFunctions::getInhouseProductBonus($product) ?>
+                                            </p>
+
+                                            <a href="#product-modal-<?php echo $product->id ?>" data-toggle="modal"
+                                               class="flipper-button">
+                                                Quick View
+                                            </a>
+                                            <a href="javascript:removeFavoriteProduct(<?php echo $product->id; ?>);"
+                                               class="add-favorite"><span class="glyphicon glyphicon-remove"></span></a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Quick View Modal -->
+                        <?php $this->renderPartial('../products/_product_popup', array('product' => $product)); ?>
+                    <?php endforeach ?>
+                <?php endif ?>
+
+                <!-- Favourite Products -->
+
+                <?php
+                $affProdFav = AffiliateProductFavourites::model()->findAll('account_id = ' . Yii::app()->user->id);
+                if (!empty($affProdFav)) : ?>
+
+                        <?php
+                        foreach ($affProdFav as $affiliateFavProducts) :
+
+                            $product_id = explode('-', $affiliateFavProducts->product_id);
+                            $product_id = $product_id[0];
+                            $product    = Product::model()->findByPk($product_id);
+                            $imgurl     = UtilityFunctions::getAffProductImage($product);
+                            $retailer   = Retailer::model()->findByPk($product->retailer_id);
+                            $proName    = explode(",", $product->product_name);
+
+                            if (empty($product['id']))
+                                continue;
+
+                            ?>
+                            <div class="profile-wish col-lg-4 col-md-4 col-sm-4 col-xs-6 col-xl-5 col-xl-8"
+                                 id="affiProducts_<?= $product['id'] ?>">
+                                <div class="product-block">
+                                    <div class="flip-container clearfix">
+                                        <div class="flipper ">
+                                            <div class="front">
+                                                <a href="javascript:removeFavoriteAffiliateProduct('<?php echo $affiliateFavProducts->product_id; ?>');"
+                                                   class="add-favorite"><span class="glyphicon glyphicon-remove"></span></a>
+                                                <div class="product-image">
+<!--                                                    <span class="retailer-name"> --><?php //echo $product['retailer']->name ?><!-- </span>-->
+                                                    <img class="img-responsive" src="<?php echo $imgurl; ?>"
+                                                         alt="<?php echo $proName[0]; ?>"/>
+                                                </div>
+                                                <p class="product-name clearfix">
+                                                        <?php echo $proName[0]; ?>
+                                                </p>
+                                                <div class = "border-bottom"></div>
+                                                <span class="bonus-amount">
+                                                    <?php echo $product->currency . '&nbsp;' . $product->price; ?>
+                                                </span>
+                                                <p class="deal-bc">
+                                                    <?php echo UtilityFunctions::retailerBonusCash($retailer); ?>
+                                                </p>
+
+                                            </div>
+                                            <div class="back">
+                                                <div class="product-overlay"></div>
+                                                <a href="javascript:removeFavoriteAffiliateProduct('<?php echo $affiliateFavProducts->product_id; ?>');"
+                                                   class="add-favorite"><span class="glyphicon glyphicon-remove"></span></a>
+                                                <div class="product-image">
+<!--                                                    <span class="retailer-name"> --><?php //echo $product['retailer']->name ?><!-- </span>-->
+                                                    <img class="img-responsive" src="<?php echo $imgurl; ?>"
+                                                         alt="<?php echo $proName[0]; ?>" />
+                                                </div>
+
+                                                <p class="product-name clearfix">
+                                                    <?php echo $proName[0]; ?>
+                                                </p>
+                                                <div class = "border-bottom"></div>
+                                                <span class="bonus-amount">
+                                                    <?php echo $product->currency . '&nbsp;' . $product->price; ?>
+                                                </span>
+                                                <p class="deal-bc">
+                                                    <?php echo UtilityFunctions::retailerBonusCash($retailer); ?>
+                                                </p>
+
+                                                <?php
+                                                $network = Affiliatenetwork::model()->findByPk($retailer->affiliate_network_id);
+                                                $url = $product['linkurl'] . $network->tracking . '=';
+
+                                                $clicked_source = 'Retailer';
+                                                if ($retailer->type == 'store_url') {
+                                                    $url = $retailer->gift_card_url;
+                                                    $clicked_source = 'eVoucher';
+                                                }
+                                                ?>
+                                                <form target="_blank" method="post"
+                                                      action="<?= $BASE_URL . "/index.php/Login/index" ?>"
+                                                      id="form-shop-now<?= $product['id'] ?>">
+                                                    <input type="hidden" name="url" value="<?= $url ?>">
+                                                    <?php if ($retailer->type == 'store_url') : ?>
+                                                        <input type="hidden" name="no_refer" value="1">
+                                                        <input type="hidden" name="affiliate_network_id"
+                                                               value="<?= $retailer->affiliate_network_id ?>">
+                                                    <?php else : ?>
+                                                        <input type="hidden" name="no_refer" value="0" />
+                                                        <input type="hidden"  name="affiliate_network_id" value="<?= $retailer->affiliate_network_id ?>" />
+                                                        <input type="hidden" name="clicked_source" value="<?php echo $clicked_source; ?>" />
+                                                        <input type="hidden" name="retailer_id" value="<?php echo $retailer->id; ?>" />
+                                                        <input type="hidden" name="clicked_url" value="<?php echo $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>" />
+                                                        <input type="hidden" name="retailer_name" value="<?php echo $retailer->name; ?>" />
+                                                    <?php endif; ?>
+                                                </form>
+                                                <a href="javascript:;"
+                                                   onclick="document.getElementById('form-shop-now<?= $product['id'] ?>').submit();"
+                                                   class="flipper-button">
+                                                    Shop Now
+                                                </a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php
+                        endforeach ?>
+                <?php endif ?>
+                </div>
+            </div>
+
+            <div class="ibox ibox-profile alternate">
+                <div class="ibox-title ibox-profile-title clearfix">
+                    <h5><i class="customicon3-wishlist fa" style="left:-5px;"> </i>  Wishlist Offers</h5>
+                    <div class="ibox-tools m-r-md">
+                        <div class="form-group">
+                            <a class="" href="<?php echo $this->createAbsoluteUrl("/hotoffers") ?>"
+                               title="Retailers" style="border-radius: 20px;"><i class="fa fa-eye" aria-hidden="true"></i>
+                                View More Hot Offers
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <?php
+                $favorite_deals = SportsPassAccountDealsFavorite::getDealsByAccountId($account->id);
+
+                if ($favorite_deals) {
+                    foreach ($favorite_deals as $key => $value) :
+                        $deals = SportspassDeals::model()->findByPk($value->deal_id);
+
+                        ?>
+
+                        <div class="profile-offers col-lg-3 col-md-3 col-sm-4 col-xs-6 center remove-<?= $value->id ?>">
+                             <div class="product-block">
+                                <div class="flip-container clearfix">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <img class="img-responsive"
+                                                 src="<?php echo $deals->banner_image ?>"
+                                                 alt="<?php echo $deals->name ?>"
+                                            />
+
+                                                <h4 class="m-t-none"><?= $deals->name ?></h4>
+                                                <!-- <span class="strip-divider black"><?= $deals->description ?></span> -->
+
+                                                <p class="deal-bc">
+                                                    &nbsp;
+                                                </p>
+                                        </div>
+                                        <div class="back">
+                                            <div class="product-overlay"></div>
+                                            <a href="javascript:removeHotOffers('<?= $value->id ?>')" class="add-favorite"><span class="glyphicon glyphicon-remove"></span></a>
+                                                <img class="img-responsive"
+                                                             src="<?php echo $deals->banner_image ?>"
+                                                             alt="<?php echo $deals->name ?>"
+                                                        />
+                                                <h4 class="m-t-none"><?= $deals->name ?></h4>
+                                                <!-- <span class="strip-divider black"><?= $deals->description ?></span> -->
+
+                                                <p class="deal-bc">
+                                                    &nbsp;
+                                                </p>
+                                            <div class = "offer-info">
+                                                <h4 class="m-t-none"><?= $deals->name ?></h4>
+                                                <!-- <span class="strip-divider black"><?= $deals->description ?></span> -->
+                                                <a href = "/SportsPassDeals?id=<?= $deals->id ?>" class="btn btn-primary">View Deal</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                    endforeach;
+                }
+                ?>
+
+            </div>
+
+<!--             <div class="ibox ibox-profile alternate" id="social">
+                <div class="ibox-title ibox-profile-title">
+                    <h5><i class="fa fa-users"> </i> Social </h5>
+                </div>
+                <div class="ibox-content clearfix no-padding-x">
+                    <p class="profile-para">
+                        Connect with us on your favourite Social Media channel for the late offers, sales, trends and tips.
+                    </p>
+                    <div class="spread-social">
+
+                        <a href="https://www.facebook.com/#" target="_blank">
+                            <i class="fa fa-facebook-square"> </i>
+                        </a>
+                        <a href="https://twitter.com/#" target="_blank">
+                            <i class="fa fa-twitter-square"> </i>
+                        </a>
+                        <a href="https://plus.google.com/#" target="_blank">
+                            <i class="fa fa-google-plus-square"> </i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/#" target="_blank">
+                            <i class="fa fa-linkedin-square"> </i>
+                        </a>
+                        <a href="https://www.youtube.com/user/#" target="_blank">
+                            <i class="fa fa-youtube-square"> </i>
+                        </a>
+                    </div>
+                </div>
+            </div> -->
+
+        </div>
+    </div>
+</div>
+
+<!-- Travel Cash Modal -->
+<div class="modal fade" id="travelCash" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content animated bounceInRight">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span
+                            class="sr-only">Close</span></button>
+                <h4 class="modal-title">Travel Cash </h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-condensed table-profile">
+                        <tr>
+                            <th> Date</th>
+                            <th> Description</th>
+                            <th> Spending</th>
+                            <th class="text-right"> Travel Cash</th>
+                        </tr>
+                        <?php if (!empty($travel_cash_earned['travel_cashes'])) : ?>
+                            <?php foreach ($travel_cash_earned['travel_cashes'] as $travel_cash) : ?>
+                                <tr>
+                                    <td> <?php echo $travel_cash['date'] ?> </td>
+                                    <td> <?php echo $travel_cash['description'] ?> </td>
+                                    <td> <?php echo '$' . $travel_cash['spending'] ?> </td>
+                                    <td class="text-right"> <?php echo '$' . $travel_cash['travel_cash'] ?> </td>
+                                </tr>
+                            <?php endforeach ?>
+                            <tfoot>
+                            <tr>
+                                <td colspan="3" class="text-right"><b>Total</b></td>
+                                <td class="text-right">
+                                    <b>$<?php echo $travel_cash_earned['total'] ?></b>
+                                </td>
+                            </tr>
+                            </tfoot>
+                        <?php else : ?>
+                            <tr>
+                                <td colspan="4">You don't have any Travel Cash history.</td>
+                            </tr>
+                        <?php endif ?>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade mt-100" id="cfrm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Confirmation</h4>
+            </div>
+            <div class="modal-body mt-30 mb-40">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content text-center">
+            <div class="modal-body">
+
+                <div class="print-card">
+                    <img src="" class="imagepreview" />
+                </div>
+                <br/>
+                <button class="btn btn-primary print-club-card">Print</button>
+                <button class="btn btn-primary email-club-card" data-name="<?= $account->firstname ?>" data-email="<?= $account->email ?>">Email</button>
+            </div>
+        </div>
+        <a href="#" class="modal-close" data-dismiss="modal">
+            <span class="modal-close-icon"></span>
+        </a>
+    </div>
+</div>
+
+<div id="card-modal" class="modal fade-scale" role="dialog">
+
+    <div class="modal-dialog">
+
+        <div class="card-flip-container">
+            <div class="card-flipper">
+                <div class="card-front">
+                    <img src="<?= $club['banner_image'] ?>"
+                         alt=""
+                         class="account-<?= $value['id'] ?>"
+                         style="width: 100%"/>
+                </div>
+                <div class="card-back">
+
+                    <!-- Modal content-->
+                    <div class="modal-content" style="text-align: center">
+                        <!--            --><?php
+                        //            $cardData = CJSON::decode(SportsPassClubMembers::getMemberCardData($value['sp_member_id']));
+                        //
+                        //            ?>
+                        <div class="modal-body">
+
+                            <!--                    --><?php
+                            //                    for ($x = 0; $x < count($cardData); $x++) {
+                            //
+                            //                        echo '<p class = "col-md-6">'.$cardData[$x]['name'].': </p><p class = "col-md-6">'.$cardData[$x]['value'].'</p>';
+                            //
+                            //                    }
+                            //                    ?>
+                            <!--                    <div class = "card-modal-buttons">-->
+                            <!--                        <button class="btn btn-primary print-club-card">Download</button>-->
+                            <!--                        <button class="btn btn-primary print-club-card">Print</button>-->
+                            <!--                        <button class="btn btn-primary print-club-card">Email</button>-->
+                            <!--                        <button class="btn btn-primary print-club-card">Add to Wallet</button>-->
+                            <!--                    </div>-->
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <a href="#" class="modal-close" data-dismiss="modal"><span class="modal-close-icon"></span></a>
+    </div>
+
+
+</div>

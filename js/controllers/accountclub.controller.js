@@ -3,82 +3,142 @@ angular
 .controller('accountClubCtrl', accountClubCtrl)
 .controller('ModalInstanceCtrl', ModalInstanceCtrl);
 
-accountClubCtrl.$inject = ['$scope','$modal','$http', '$log'];
-function accountClubCtrl($scope, $modal, $http, $log) {
-  $scope.clubs = [{
-      id: 'club-001',
-      name: 'Ararat Fitness Centre',
-      image: './img/placeholders/cards/ararat.png',
-      logo: './img/placeholders/club-logo/ararat-logo.jpg',
-      form: [
-              	{
-              		"type": "text",
-              		"label": "<p>Member Number&nbsp;</p>",
-              		"description": "Enter your member number you received on your email",
-              		"name": "member-number",
-              		"subtype": "text",
-              		"className": "red form-control"
-              	},
-              	{
-              		"type": "text",
-              		"label": "<p>Participant First Name&nbsp;</p>",
-              		"name": "first-name",
-              		"subtype": "text",
-              		"className": "red form-control"
-              	},
-              	{
-              		"type": "text",
-              		"label": "<p>Participant Last Name</p>",
-              		"name": "last-name",
-              		"subtype": "text",
-              		"className": "red form-control"
-              	},
-                {
-                  "type": "file",
-                  "label": "<p>File Upload</p>",
-                  "placeholder": "test",
-                  "className": "slim",
-                  "name": "file-1512634001484",
-                  "subtype": "file"
-                }
-              ]
-    },
-    {
-      id: 'club-002',
-      name: 'Badminton Victoria',
-      image: './img/placeholders/cards/victoria-badminton.png',
-      logo: './img/placeholders/club-logo/ararat-logo.jpg'
-    }
-  ];
-  $scope.member = [{
-    sportsPassAccountNumber: '123',
-    memberNumber : '143',
-    clubId : 'club-001',
-    firstName : 'Charlon Jeff',
-    lastName : 'Cortez',
-    barCode : 'AFC-123',
-    avatar: './img/placeholders/avatar/avatar.png',
-    memberCardData: [
-      {"name":"member-number","value":"123"},
-      {"name":"first-name","value":"CJ"},
-      {"name":"last-name","value":"Cortez"}
-    ]
-  },
-  {
-    sportsPassAccountNumber: '163',
-    memberNumber : '163',
-    clubId : 'club-002',
-    firstName : 'Angelo',
-    lastName : 'Gabisan',
-    barCode : 'AFC-163',
-    avatar: './img/placeholders/avatar/avatar.png',
-    memberCardData: [
-      {"name":"member-number","value":"163"},
-      {"name":"first-name","value":"Angelo"},
-      {"name":"last-name","value":"Gabisan"}
-    ]
+accountClubCtrl.$inject = ['$scope','$modal','$http', '$log', 'ClubsService', 'MemberService','AccountService'];
+function accountClubCtrl($scope, $modal, $http, $log , ClubsService, MemberService,AccountService) {
+
+  var vm = this;
+
+  $scope.clubs = [];
+  $scope.user  = JSON.parse(localStorage.getItem('user'));
+
+  $scope.getClubs = function() {
+
+    ClubsService.getAll().then(function(response){
+     $scope.clubs = response.data.clubs;
+
+     console.log($scope.clubs);
+    });
   }
-  ];
+
+
+  $scope.members = [];
+
+  $scope.getMembers = function() {
+
+    AccountService.getAccountMembers($scope.user.data.id).then(function(response){
+     $scope.member = response.data;
+
+     console.log($scope.member);
+    });
+  }
+
+  // Set default club in the select element
+  $scope.defaultClub = $scope.clubs[-1];
+
+
+  // Activates if the club is selected
+  $scope.selectClub = function() {
+
+    if ($scope.defaultClub){
+      $scope.selectedClub = $scope.defaultClub;
+
+      $scope.getClubLayoutTemplate = 'views/common/widgets/get-club-layout.html';
+    }else {
+      $scope.getClubLayoutTemplate = '';
+    }
+
+  }
+
+
+  $scope.saveCard = function(test) {
+    console.log(test.first_name);
+    console.log(test.last_name);
+    console.log(test.member_number);
+  }
+
+  /**
+   * @todo create account members api
+   * @var $scope.member
+   */
+  // $scope.getMembers = function() {
+  //
+  // }
+
+
+  // $scope.clubs = [{
+  //     id: 'club-001',
+  //     name: 'Ararat Fitness Centre',
+  //     image: './img/placeholders/cards/ararat.png',
+  //     logo: './img/placeholders/club-logo/ararat-logo.jpg',
+  //     form: [
+  //             	{
+  //             		"type": "text",
+  //             		"label": "<p>Member Number&nbsp;</p>",
+  //             		"description": "Enter your member number you received on your email",
+  //             		"name": "member-number",
+  //             		"subtype": "text",
+  //             		"className": "red form-control"
+  //             	},
+  //             	{
+  //             		"type": "text",
+  //             		"label": "<p>Participant First Name&nbsp;</p>",
+  //             		"name": "first-name",
+  //             		"subtype": "text",
+  //             		"className": "red form-control"
+  //             	},
+  //             	{
+  //             		"type": "text",
+  //             		"label": "<p>Participant Last Name</p>",
+  //             		"name": "last-name",
+  //             		"subtype": "text",
+  //             		"className": "red form-control"
+  //             	},
+  //               {
+  //                 "type": "file",
+  //                 "label": "<p>File Upload</p>",
+  //                 "placeholder": "test",
+  //                 "className": "slim",
+  //                 "name": "file-1512634001484",
+  //                 "subtype": "file"
+  //               }
+  //             ]
+  //   },
+  //   {
+  //     id: 'club-002',
+  //     name: 'Badminton Victoria',
+  //     image: './img/placeholders/cards/victoria-badminton.png',
+  //     logo: './img/placeholders/club-logo/ararat-logo.jpg'
+  //   }
+  // ];
+  // $scope.member = [{
+  //   sportsPassAccountNumber: '123',
+  //   memberNumber : '143',
+  //   clubId : 'club-001',
+  //   firstName : 'Charlon Jeff',
+  //   lastName : 'Cortez',
+  //   barCode : 'AFC-123',
+  //   avatar: './img/placeholders/avatar/avatar.png',
+  //   memberCardData: [
+  //     {"name":"member-number","value":"123"},
+  //     {"name":"first-name","value":"CJ"},
+  //     {"name":"last-name","value":"Cortez"}
+  //   ]
+  // },
+  // {
+  //   sportsPassAccountNumber: '163',
+  //   memberNumber : '163',
+  //   clubId : 'club-002',
+  //   firstName : 'Angelo',
+  //   lastName : 'Gabisan',
+  //   barCode : 'AFC-163',
+  //   avatar: './img/placeholders/avatar/avatar.png',
+  //   memberCardData: [
+  //     {"name":"member-number","value":"163"},
+  //     {"name":"first-name","value":"Angelo"},
+  //     {"name":"last-name","value":"Gabisan"}
+  //   ]
+  // }
+  // ];
   $scope.card = [{
     memberNumber : '143',
     clubId : 'club-001',
@@ -132,38 +192,25 @@ function accountClubCtrl($scope, $modal, $http, $log) {
 
     }
 
-  // Set default club in the select element
-  $scope.defaultClub = $scope.clubs[-1];
 
-
-  // Activates if the club is selected
-  $scope.selectClub = function() {
-
-        if ($scope.defaultClub){
-          $scope.selectedClub = $scope.defaultClub;
-          $scope.getClubLayoutTemplate = 'views/common/widgets/get-club-layout.html';
-        }else {
-          $scope.getClubLayoutTemplate = '';
-        }
-
-    }
 
     $scope.checkMember = function(membClubId) {
 
-      alert("test");
-      if (!$scope.member) {
-          return;
-      }
 
-      for (var c = 0; c < $scope.member.length; c++) {
-          var member = $scope.member[c];
-          if (member.clubId === membClubId) {
-              // return club;
-              alert("naa");
-          } else {
-            alert("wala");
-          }
-      }
+      // if (!$scope.member) {
+      //     return;
+      // }
+      //
+      //
+
+      // for (var c = 0; c < $scope.member.length; c++) {
+      //     var member = $scope.member[c];
+      //     if (member.clubId === membClubId) {
+      //
+      //     } else {
+      //
+      //     }
+      // }
 
       }
 
@@ -245,6 +292,9 @@ function accountClubCtrl($scope, $modal, $http, $log) {
               console.log(slim);
           }
       }
+
+      $scope.getClubs();
+      $scope.getMembers();
 
 }
 

@@ -132,18 +132,19 @@ function bannerAdsCarouselItemDirective() {
 function liMarqueeDirective() {
   var directive = {
     restrict: 'A',
-    link: link
+    link: link,
+    scope: true
   }
   return directive;
 
   function link(scope, element, attrs) {
-        $("document").ready(function () {
-          $(element).liMarquee({
-              direction: 'left',
-              height: '100px',
-              circular:true,
-              startShow:true
-          });
+
+        element.liMarquee({
+            direction: 'left',
+            height: '100px',
+            circular:true,
+            startShow:true
         });
+
   }
 }

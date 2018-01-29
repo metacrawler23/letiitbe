@@ -1,8 +1,10 @@
-<section class="banner-container" id="home" style="background:url(./img/sports/SportsPass-Lights-1903x1500.jpg) center top no-repeat; background-size:cover;">
+<div ng-controller = "sportsClubController">
+<section class="banner-container" id="home" style="background:url({{pageDetails.banner_image}}) center top no-repeat; background-size:cover;">
 
     <div class="container" style="position:relative;">
         <div class = "col-md-9 copy-container">
             <h1> Welcome to <br> SportsPass...</h1>
+            <a ng-click="gotoBottom()">test</a>
             <br/>
             <h5 style="margin-bottom: 5px">and your SportsCash eWallet</h5>
             <h5 style="margin-top: 5px">Reward, earn, experience, share</h5>
@@ -11,11 +13,11 @@
             </div>
         </div>
 <!--            displays logo if there is slug in the url -->
-<!--        <div class = "col-md-3 logo-container">-->
-<!--            <img src="/assets/sportspass/clubs/5a3b6a46cc0a8_knox-logo.png" alt="" >-->
-<!--        </div>-->
+       <div class = "col-md-3 logo-container">
+           <img src="{{pageDetails.logo}}" alt="" >
+       </div>
         <div class="col-md-12  banner_card">
-            <img src="./img/sports/SPS551-A-LP_MemberCards.png">
+            <img src="{{pageDetails.front_card_image}}">
         </div>
     </div>
 
@@ -118,16 +120,26 @@
         </div>
     </div>
     <div class=" container2 container">
-        <div class="row mt-30 tile-holder" ng-controller="homeBoxesCtrl">
+        <div class="row mt-30 tile-holder">
 
-          <div ng-repeat = "bannerItem in defBanners" class="col-md-4 col-sm-4 col-xs-6">
-              <div class="coupons_img_box default_tiles">
-                  <a target="" href="">
-                      <img src="{{bannerItem.image}}" alt="">
-                  </a>
+          <div ng-if="customBanners.length != 0">
+              <div ng-repeat = "bannerItem in customBanners" class="col-md-4 col-sm-4 col-xs-6">
+                  <div class="coupons_img_box default_tiles">
+                      <a target="" href="">
+                          <img src="{{bannerItem.image}}" alt="">
+                      </a>
+                  </div>
               </div>
           </div>
-
+          <div ng-if="customBanners.length == 0">
+              <div ng-repeat = "bannerItem in defaultBanners" class="col-md-4 col-sm-4 col-xs-6">
+                  <div class="coupons_img_box default_tiles">
+                      <a target="" href="">
+                          <img src="{{bannerItem.image}}" alt="">
+                      </a>
+                  </div>
+              </div>
+          </div>
         </div>
     </div>
 </section>
@@ -200,7 +212,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12 mt-50 mb-20" ng-controller="liMarqueeCtrl">
 
 
-                 <div li-marquee-directive="" id = "clublogo-slider" class="mWrap">
+                 <div li-marquee-directive id = "clublogo-slider" class="mWrap">
                     <!-- <?php
                         $club_display = SportsPassClub::getClubs();
 
@@ -211,10 +223,9 @@
                             </a>
                     <?php endforeach; ?> -->
 
+                      <a ng-repeat="items in clubs" class="item">
 
-
-                      <a ng-repeat="items in clubLogos" class="item">
-                            <img src="{{ items }}" />
+                          <img src="{{ items.logo }}" />
                       </a>
                 </div>
             </div>
@@ -287,92 +298,4 @@
         </form>
     </div>
 </section>
-<!-- <?=  CHtml::scriptFile(Yii::app()->request->baseUrl . '/skin/sportspass/js/jquery.validate.js'); ?> -->
-<!-- <script type="text/javascript">
-    $(".contact_form").validate({
-        /* @validation states + elements */
-        errorClass: 'error-view',
-        validClass: 'success-view',
-        errorElement: 'span',
-        onkeyup: false,
-        onclick: false,
-
-        rules:{
-            'firstname': {
-                required: true
-            },
-            'lastname': {
-                required: true
-            },
-            'email': {
-                required: true
-            },
-            'enquiry': {
-                required: true
-            },
-            'message': {
-                required: true
-            }
-        },
-        messages: {
-            'firstname': {
-                required: "Please enter your first name"
-            },
-            'lastname': {
-                required: "Please enter your last name"
-            },
-            'email': {
-                required: "Please enter your email"
-            },
-            'enquiry': {
-                required: "Please enter your enquiry"
-            },
-            'message': {
-                required: "Please enter your message detail"
-            }
-        },
-        // Add class 'error-view'
-        highlight: function(element, errorClass, validClass) {
-            $(element).attr('style', 'border: 1px solid red');
-        },
-        // Add class 'success-view'
-        unhighlight: function(element, errorClass, validClass) {
-            $(element).removeAttr('style');
-        },
-        // Error placement
-        errorPlacement: function(error, element) {
-            $(element).focus();
-        },
-        submitHandler : function(form) {
-
-            var $this = $('form.contact_form');
-            var content = "";
-
-            content += 'Website: ' + $this.find('input[name="url"]').val() +
-                        ' <br/>Message: ' + $this.find('textarea[name="message"]').val();
-
-            var data = {
-                name: $this.find('input[name="firstname"]').val() + ' ' +  $this.find('input[name="lastname"]').val(),
-                subject: $this.find('select option:selected').text() + '-' + $this.find('input[name="enquiry"]').val(),
-                email: $this.find('input[name="email"]').val(),
-                body: content
-            };
-
-            $.post("/site/sendEnquiry", data, function(data){
-
-                console.log(data);
-                $(".btn-submit-contact").removeAttr('disabled').val('Done!');
-
-                $this.find('input[name="firstname"]').val('');
-                $this.find('input[name="lastname"]').val('');
-                $this.find('select option:first').attr('selected', 'selected');
-                $this.find('input[name="enquiry"]').val('');
-                $this.find('input[name="email"]').val('');
-                $this.find('input[name="url"]').val('');
-                $this.find('textarea[name="message"]').val('');
-            });
-
-            return false;
-        }
-    });
-</script> -->
+</div>

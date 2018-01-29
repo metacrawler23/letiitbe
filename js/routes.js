@@ -7,7 +7,7 @@ angular
 
   $ocLazyLoadProvider.config({
     // Set to true if you want to see what and when is dynamically loaded
-    debug: true
+    debug: false
   });
 
   $stateProvider
@@ -44,16 +44,12 @@ angular
           ]
           },{
             serie: true,
-            name: 'owl carousel',
+            name: 'Carousel',
             files: [
               'libs/owlcarousel/js/owl.carousel.min.js',
+              'libs/limarquee/jquery.liMarquee.js',
               'js/controllers/carousels.controller.js',
-            ]
-          },{
-            serie: true,
-            name: 'liMarquee',
-            files: [
-              'libs/limarquee/jquery.liMarquee.js'
+              'js/directives/carousels.directive.js'
             ]
         }]);
       }],
@@ -81,7 +77,6 @@ angular
             files: [
               'bower_components/chart.js/dist/Chart.min.js',
               'bower_components/angular-chart.js/dist/angular-chart.min.js'
-
             ]
           }
         ]);
@@ -90,23 +85,38 @@ angular
         // you can lazy load controllers
         return $ocLazyLoad.load({
           files: [
-            'js/controllers/ewallet.controller.js',
-            'js/controllers/homeboxes.controller.js'
+            'js/controllers/ewallet.controller.js'
           ]
         });
       }]
     }
   })
+  .state('app.sportClub', {
+    abstract: true,
+    url: '/sports',
+    defaultChild: 'app.sportClub.view',
+    template: '<ui-view></ui-view>'
+  })
+  .state('app.sportClub.view', {
+    url: '',
+    templateUrl: 'views/main_logout.html',
+  })
+  .state('app.sportClub.page', {
+    url: '/{slug}',
+    templateUrl: 'views/pages/sports-club-page.html'
+  })
 
   .state('app.login', {
     url: '/login',
     templateUrl: 'views/pages/login.html',
-    controllerAs: 'vm'
+    controller: 'LoginController',
+    controllerAs: 'login'
   })
   .state('app.register', {
     url: '/register',
     templateUrl: 'views/pages/register.html',
-    controllerAs: 'vm'
+    controller: 'RegisterController',
+    controllerAs: 'register'
   })
   .state('app.privacy-policy', {
     url: '/privacy-policy',
@@ -116,6 +126,10 @@ angular
     url: '/faq',
     templateUrl: 'views/pages/faq.html'
   })
+  .state('app.profile', {
+    url: '/profile',
+    templateUrl: 'views/pages/profile.html'
+  })
   .state('app.termscondition', {
     url: '/terms-and-condition',
     templateUrl: 'views/pages/terms_condition.html'
@@ -123,6 +137,7 @@ angular
   .state('app.accountclub', {
     url: '/account-club',
     controller: 'accountClubCtrl',
+    controllerAs: 'vm',
     templateUrl: 'views/pages/account_club.html',
     resolve: {
       loadPlugin: ['$ocLazyLoad', function ($ocLazyLoad) {

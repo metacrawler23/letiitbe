@@ -1,7 +1,7 @@
 <div class="newly-added addcard-container text-center">
     <div class="club-card">
         <a href="javascript:;" class="club-card-header">
-            <img class="img-responsive" src="{{selectedClub.image}}">
+            <img class="img-responsive" src="{{selectedClub.front_card_image}}">
 
         </a>
         <div class="dynamic-form-wrapper">
@@ -11,7 +11,8 @@
             </div>
             <h4 class="club-name">{{selectedClub.name}}</h4>
             <div id="render-form" class="collapse">
-                <form class="render-wrap text-left" role="form">
+                <form class="render-wrap text-left" name="form" role="form">
+
 
                 </form>
                 <div class="dynamic-card-wrapper clearfix">
@@ -27,7 +28,7 @@
 
 
             <!-- <button class='btn btn-primary mb-20' data-toggle='collapse' data-club='"+$this.val()+"' data-form='"+JSON.stringify(form)+"' data-target='#render-form-"+$this.find('option:selected').data('club')+"'>Create Card</button> -->
-            <create-card-form model="selectedClub" class='btn btn-primary mb-20'>Create Card</create-card-form>
+            <create-card-form model="selectedClub" class="btn btn-primary mb-20">Create Card</create-card-form>
 
             <div class="dynamic-form-footer" style="margin-top: 10px">
                 <span>No Text</span>

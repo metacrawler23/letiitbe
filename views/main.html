@@ -1,15 +1,10 @@
-<!-- userCTRL - go to controller.js -->
-<div ng-controller="userCtrl">
-    <span ng-switch on="status">
-      <div ng-switch-when="loginned">
-          <div ng-include src="'views/main_login.html'">
+<div ng-if="authenticated == true">
+    <div ng-include src="'views/main_login.html'">
 
-          </div>
-      </div>
-      <div ng-switch-default>
-          <div ng-include src="'views/main_logout.html'">
+    </div>
+</div>
+<div ng-if="authenticated == false">
+    <div ng-include src="'views/main_logout.html'">
 
-          </div>
-      </div>
-    </span>
+    </div>
 </div>

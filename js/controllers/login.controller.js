@@ -5,29 +5,35 @@
         .module('app')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$location', 'AuthenticationService', 'FlashService'];
-    function LoginController($location, AuthenticationService, FlashService) {
+    LoginController.$inject = ['LoginService', '$rootScope', '$scope', '$http', '$window', '$state'];
+    function LoginController(LoginService, $rootScope, $scope, $http, $window, $state) {
         var vm = this;
 
-        vm.login = login;
+        vm.errorMessage = "";
 
-        (function initController() {
-            // reset login status
-            AuthenticationService.ClearCredentials();
-        })();
+      	vm.login = function () {
 
-        function login() {
-            vm.dataLoading = true;
-            AuthenticationService.Login(vm.username, vm.password, function (response) {
-                if (response.success) {
-                    AuthenticationService.SetCredentials(vm.username, vm.password);
-                    $location.path('/');
-                } else {
-                    FlashService.Error(response.message);
-                    vm.dataLoading = false;
-                }
-            });
-        };
+      		var data = {
+      			user_name : vm.user_name,
+      			password : vm.password
+      		};
+
+      		var res = LoginService.login(data).then(function (response) {
+
+              var user = JSON.stringify(response.data);
+
+              localStorage.setItem('user', user);
+              console.log(user);
+
+              $state.go('app.main');
+          }, function(error) {
+              if (error.status == 404) {
+                vm.errorMessage = 'User ' + error.statusText + '.';
+              } else if (error.status == 403) {
+                vm.errorMessage = 'Username / Password invalid.';
+              }
+          });
+      	}
     }
 
 })();

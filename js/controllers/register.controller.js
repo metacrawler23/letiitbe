@@ -5,25 +5,25 @@
         .module('app')
         .controller('RegisterController', RegisterController);
 
-    RegisterController.$inject = ['UserService', '$location', '$rootScope', 'FlashService'];
-    function RegisterController(UserService, $location, $rootScope, FlashService) {
+    RegisterController.$inject = ['$rootScope', '$scope', '$http', '$window', 'RegisterService'];
+    function RegisterController( $rootScope, $scope, $http, $window, RegisterService) {
         var vm = this;
 
-        vm.register = register;
+        vm.register = function () {
 
-        function register() {
-            vm.dataLoading = true;
-            UserService.Create(vm.user)
-                .then(function (response) {
-                    if (response.success) {
-                        FlashService.Success('Registration successful', true);
-                        $location.path('/login');
-                    } else {
-                        FlashService.Error(response.message);
-                        vm.dataLoading = false;
-                    }
-                });
-        }
+      		var data = {
+            program_id: 1,
+      			user_name : vm.email,
+      			password : vm.password,
+            email : vm.email,
+            first_name : vm.first_name,
+            last_name : vm.last_name,
+            post_code: vm.post_code
+      		};
+      		var res = RegisterService.register(data).then(function (response) {
+              console.log(response);
+          });
+      	}
     }
 
 })();

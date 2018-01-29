@@ -39,21 +39,21 @@
             <div  class="hot-offers-holder container clearfix">
                 <h3 id = "trendhotoffers" class = "text-center">Top Trending Hot Offers</h3>
 
-                    <div ng-repeat="item in ::trendingOffers" home-boxes-directive = ""  class="ho-tiles col-md-3 col-sm-4 col-xs-6">
+                    <div ng-repeat="item in trendingOffers" home-boxes-directive = ""  class="ho-tiles col-md-3 col-sm-4 col-xs-6">
                         <div class="deals-box-outer2">
                             <div class="flip-container">
                                 <div class="flipper sports-offers">
                                     <div class="front" >
-                                        <img class="img-responsive" src = "{{::item}}">
+                                        <img class="img-responsive" src = "{{item.image}}">
                                     </div>
                                     <div class="back">
                                         <div class="product-overlay"></div>
-                                            <a href="#" title="" onclick="document.getElementById('form-sp-tiles<?= $offers['id'] ?>').submit();">
+                                            <a href="{{item.url}}" target="{{item.is_new_tab && '_blank' || '_self' }}" title=" {{item.name}}" class="hotoffers" data-id="{{item.id}}">
 
-                                                <img class="img-responsive" src = "{{::item}}">
+                                                <img class="img-responsive" src = "{{item.image}}">
 
                                                 <div class="deal-info center">
-                                                    <h6> <?= $offers['name'] ?> </h6>
+                                                    <h6> {{item.name}}</h6>
 
                                                     <div class="btn btn-primary block center">
                                                         View Deal
@@ -71,20 +71,20 @@
             <div class="hot-offers-holder container clearfix">
                 <h3 class = "text-center">Top Trending Experiences</h3>
 
-                    <div ng-repeat="item in ::trendingExperiences" home-boxes-directive = ""  class="ho-tiles col-md-3 col-sm-4 col-xs-6">
+                    <div ng-repeat="item in trendingExperiences" home-boxes-directive = ""  class="ho-tiles col-md-3 col-sm-4 col-xs-6">
                         <div class="deals-box-outer2">
                             <div class="flip-container">
                                 <div class="flipper sports-offers">
                                     <div class="front">
-                                        <img class="img-responsive" src = "{{::item}}">
+                                        <img class="img-responsive" src = "{{item.image}}">
                                     </div>
                                     <div class="back">
                                         <div class="product-overlay"></div>
-                                            <a href="<?= $exp['url'] ?>" target="<?= $target ?>" title="<?= $exp['name'] ?>" class="hotoffers" data-id="<?= $exp['id'] ?>">
+                                            <a href="{{item.url}}" target="{{item.is_new_tab && '_blank' || '_self' }}" title=" {{item.name}}" class="hotoffers" data-id="{{item.id}}">
 
-                                                <img class="img-responsive" src = "{{::item}}">
+                                                <img class="img-responsive" src = "{{item.image}}">
                                                 <div class="deal-info center">
-                                                    <h6> <?= $exp['name'] ?> </h6>
+                                                    <h6> {{item.name}} </h6>
 
                                                     <div class="btn btn-primary block center">
                                                         View Deal

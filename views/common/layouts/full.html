@@ -6,9 +6,9 @@
 <!-- <div ng-include="'views/common/navbar.html'"></div> -->
 
 <!-- userCTRL - go to controller.js -->
-<div ng-controller="userCtrl">
+<!-- <div ng-controller="userCtrl">
     <span ng-switch on="status">
-      <div ng-switch-when="loginned">
+      <div ng-switch-when="true">
           <div ng-include src="'views/common/navbar_login.html'">
 
           </div>
@@ -19,8 +19,22 @@
           </div>
       </div>
     </span>
-</div>
+</div> -->
 
+<div ng-if="authenticated == true">
+
+    <div ng-include src="'views/common/navbar_login.html'">
+
+    </div>
+
+</div>
+<div ng-if="authenticated == false">
+
+    <div ng-include src="'views/common/navbar_logout.html'">
+
+    </div>
+
+</div>
 
 
 <div class="app-body">
