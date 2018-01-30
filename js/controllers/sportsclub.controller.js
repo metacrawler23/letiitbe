@@ -13,12 +13,13 @@ function sportsClubController($scope,ClubsService,BannerService,$state, $statePa
 
            $scope.pageDetails = response.data.club;
 
+          console.log( response);
            // console.log($scope.pageDetails);
 
-          $scope.customBanners = response.data.banners;
+              $scope.customBanners = response.data.banners;
 
-           console.log($scope.customBanners);
-
+          }, function(err) {
+              $state.go('app.sportClub.view');
           });
    }
 

@@ -39,16 +39,16 @@ function accountClubCtrl($compile,$scope, $modal, $http, $log , ClubsService, Me
   //   // });
   // }
 
-  // $scope.getCards = function() {
-  //
-  //   AccountService.getAccountMembers($scope.user.data.id).then(function(response){
-  //    $scope.member = response.data;
-  //
-  //    $scope.selectedClub = $scope.member;
-  //    $scope.getClubLayoutTemplate = 'views/common/widgets/get-club-layout.html';
-  //
-  //   });
-  // }
+  $scope.SpecificClub = function() {
+
+    AccountService.getAccountMembers($scope.user.data.id).then(function(response){
+     $scope.member = response.data;
+
+     $scope.selectedClub = $scope.member;
+     $scope.getClubLayoutTemplate = 'views/common/widgets/get-club-layout.html';
+
+    });
+  }
 
   // Set default club in the select element
   $scope.defaultClub = $scope.clubs[-1];

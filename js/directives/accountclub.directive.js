@@ -5,13 +5,12 @@ angular
 .directive('printCardImage', printCardImage)
 .directive('checkMember', checkMember)
 .directive('file', file)
-// .directive('displayForms', displayForms)
+.directive('displayForms', displayForms)
 
 function displayForms($compile,AccountService,ClubsService) {
   var directive = {
     restrict: 'A',
-    link: link,
-    scope: true
+    link: link
   }
   return directive;
 
@@ -30,7 +29,8 @@ function displayForms($compile,AccountService,ClubsService) {
                       ClubsService.getOne(data.club_id).then(function successCallback(response) {
                         $scope.getClubData = response.data;
 
-
+                        var clubData = $scope.getClubData;
+                        console.log(clubData);
                       var content = "";
 
                       content = '<div class="newly-added addcard-container text-center">' +
@@ -53,7 +53,7 @@ function displayForms($compile,AccountService,ClubsService) {
                                 '</div>' +
                                 '<div class = "card-barcode-image"></div>' +
                                 '</div>' +
-                                '<create-card-form model="selectedClub" class="btn btn-primary mb-20">Create Card</create-card-form>' +
+                                '<create-card-form model="clubData" class="btn btn-primary mb-20">Create Card</create-card-form>' +
                                 '<div class="dynamic-form-footer" style="margin-top: 10px">' +
                                 '<span>No Text</span>' +
                                 '</div>' +

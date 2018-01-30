@@ -32,7 +32,9 @@
          service.getClubBanners = function(id) {
           return $http.get( sportspass.baseUrl + '/club/get-club-banners/' + id);
          }
-
+         service.clubPage = function(slug) {
+                    return $http.get( sportspass.baseUrl + '/club/club-page/' + slug);
+        }
          service.createClub = function(data) {
 
           var config = {
