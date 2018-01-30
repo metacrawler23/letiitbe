@@ -154,12 +154,12 @@ angular
           }
         ]);
       }],
-      loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-        // you can lazy load controllers
-        return $ocLazyLoad.load({
-          files: ['js/controllers/accountclub.controller.js']
-        });
-      }],
+      // loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+      //   // you can lazy load controllers
+      //   return $ocLazyLoad.load({
+      //     files: ['js/controllers/accountclub.controller.js']
+      //   });
+      // }],
       loadCSS: ['$ocLazyLoad', function($ocLazyLoad) {
         // you can lazy load CSS files
         return $ocLazyLoad.load([{

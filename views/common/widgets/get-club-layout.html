@@ -11,7 +11,8 @@
             </div>
             <h4 class="club-name">{{selectedClub.name}}</h4>
             <div id="render-form" class="collapse">
-                <form class="render-wrap text-left" name="form" role="form">
+               <!-- ng-submit="saveCard(form)"  -->
+                <form id="dynamic-card-form" class="render-wrap text-left" name="form" role="form" ng-controller="accountClubCtrl as card">
 
 
                 </form>

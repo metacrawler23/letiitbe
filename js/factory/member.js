@@ -18,9 +18,9 @@
           return $http.get( sportspass.baseUrl + '/member/' + id);
          },
 
-         service.checkMemberNumber = function(data) {
-           return $http.get( sportspass.baseUrl + '/member/check-member-numner/' + data);
-         }
+         service.checkMemberNumber = function(member, club) {
+           return $http.get( sportspass.baseUrl + '/member/check-member-number/' + member + '/' + club);
+         };
 
       	 return service;
       }
