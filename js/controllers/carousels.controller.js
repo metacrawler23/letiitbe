@@ -35,34 +35,34 @@ function bannerAdsCarouselCtrl($scope) {
    ];
 }
 
-liMarqueeCtrl.$inject = ['$scope'];
-function liMarqueeCtrl($scope) {
+liMarqueeCtrl.$inject = ['$scope','ClubsService'];
+function liMarqueeCtrl($scope,ClubsService) {
 
-  // $scope.clubLogos = [];
-  //   //
-  //   $scope.getClubs = function() {
-  //
-  //     ClubsService.getAll().then(function(response){
-  //
-  //       angular.forEach(response.data.clubs, function(value, key) {
-  //         $scope.clubLogos.push({link: value.link, logo: value.logo});
-  //       });
-  //
-  //     });
-  //   }
-  //
-  //   $scope.getClubs();
+  $scope.clubLogos = [];
+    //
+    $scope.getClubs = function() {
 
-    $scope.clubLogos = [
-       './img/placeholders/club-logo/sample-clublogo.jpg',
-       './img/placeholders/club-logo/sample-clublogo2.jpg',
-       './img/placeholders/club-logo/sample-clublogo3.jpg',
-       './img/placeholders/club-logo/sample-clublogo4.jpg',
-       './img/placeholders/club-logo/sample-clublogo5.jpg',
-       './img/placeholders/club-logo/sample-clublogo6.jpg',
-       './img/placeholders/club-logo/sample-clublogo7.jpg',
-       './img/placeholders/club-logo/sample-clublogo8.jpg'
-      ];
+      ClubsService.getAll().then(function(response){
+
+        angular.forEach(response.data.clubs, function(value, key) {
+          $scope.clubLogos.push({link: value.link, logo: value.logo});
+        });
+
+      });
+    }
+
+    $scope.getClubs();
+
+    // $scope.clubLogos = [
+    //    './img/placeholders/club-logo/sample-clublogo.jpg',
+    //    './img/placeholders/club-logo/sample-clublogo2.jpg',
+    //    './img/placeholders/club-logo/sample-clublogo3.jpg',
+    //    './img/placeholders/club-logo/sample-clublogo4.jpg',
+    //    './img/placeholders/club-logo/sample-clublogo5.jpg',
+    //    './img/placeholders/club-logo/sample-clublogo6.jpg',
+    //    './img/placeholders/club-logo/sample-clublogo7.jpg',
+    //    './img/placeholders/club-logo/sample-clublogo8.jpg'
+    //   ];
 
 
 }

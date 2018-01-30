@@ -211,7 +211,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12 mt-50 mb-20" ng-controller="liMarqueeCtrl">
 
 
-                 <div li-marquee-directive id = "clublogo-slider" class="mWrap">
+                 <div id = "clublogo-slider" class="mWrap">
                     <!-- <?php
                         $club_display = SportsPassClub::getClubs();
 
@@ -222,7 +222,7 @@
                             </a>
                     <?php endforeach; ?> -->
 
-                      <a ng-repeat="items in clubs" class="item">
+                      <a li-marquee-directive ng-repeat="items in clubLogos" class="item">
 
                           <img src="{{ items.logo }}" />
                       </a>

@@ -129,7 +129,7 @@ function bannerAdsCarouselItemDirective() {
 }
 
 //Prevent click if href="#"
-function liMarqueeDirective() {
+function liMarqueeDirective($timeout) {
   var directive = {
     restrict: 'A',
     link: link,
@@ -139,12 +139,19 @@ function liMarqueeDirective() {
 
   function link(scope, element, attrs) {
 
-        element.liMarquee({
-            direction: 'left',
-            height: '100px',
-            circular:true,
-            startShow:true
-        });
+        if (scope.$last){
+              $timeout(function () {
+                element.parent().liMarquee({
+                    direction: 'left',
+                    height: '100px',
+                    circular:true,
+                    startShow:true
+                });
+
+              },50);
+            }
+
+
 
   }
 }
