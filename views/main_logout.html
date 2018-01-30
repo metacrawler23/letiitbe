@@ -60,12 +60,12 @@
                     <p>SportsPass members receive direct access to Australia’s leading sports rewards and member benefits program designed specifically to offset the cost of playing sport.</p>
                 </div>
             </div>
-<!--            <div class="col-md-6 col-sm-12 col-xs-12 col-md-offset-1">-->
-<!--                <div class="about_placeholder">-->
-<!--                    <iframe width="100%" height="230" src="https://www.youtube.com/embed/qp_ZMJnRL9k?modestbranding=1&autohide=1&showinfo=0&controls=0" frameborder="0" allowfullscreen></iframe>-->
-<!--                    <p>Matt White explains how SportsPass works.</p>-->
-<!--                </div>-->
-<!--            </div>-->
+           <div class="col-md-6 col-sm-12 col-xs-12 col-md-offset-1">
+               <div class="about_placeholder">
+                   <iframe width="100%" height="230" src="https://www.youtube.com/embed/qp_ZMJnRL9k?modestbranding=1&autohide=1&showinfo=0&controls=0" frameborder="0" allowfullscreen></iframe>
+                   <p>Matt White explains how SportsPass works.</p>
+               </div>
+           </div>
         </div>
     </div>
 </section>
@@ -120,13 +120,14 @@
     <div class=" container2 container">
         <div class="row mt-30 tile-holder" ng-controller="homeBoxesCtrl">
 
-          <div ng-repeat = "bannerItem in defBanners" class="col-md-4 col-sm-4 col-xs-6">
-              <div class="coupons_img_box default_tiles">
+          <div ng-repeat = "bannerItem in defBanners" class="col-md-4 col-sm-4 col-xs-6 {{ bannerItem.sort_order == 12 ? 'col-row' : ''}}">
+              <div coupons-img-box = "" class="coupons_img_box default_tiles">
                   <a target="" href="">
                       <img src="{{bannerItem.image}}" alt="">
                   </a>
               </div>
           </div>
+
 
         </div>
     </div>
@@ -151,7 +152,7 @@
                     <!--<h4>A Proud Community Partner</h4>-->
                     <p>"Finally an instant rewards program that gives back an Australian company embracing the critical issues and knowingly dealing with them, providing a sustainable funding model that purposefully supports all sports at all levels."</p>
                     <div class="about_logo_holder">
-                        <img src="./img/sports/george-bank-logo.png" alt="">
+                        <img src="./img/sports/good-guys-logo.png" alt="">
                     </div>
                 </div>
             </div>

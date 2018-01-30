@@ -39,14 +39,10 @@ function accountClubCtrl($compile,$scope, $modal, $http, $log , ClubsService, Me
   //   // });
   // }
 
-  $scope.SpecificClub = function() {
+  $scope.specificClub = function(clubid) {
 
-    AccountService.getAccountMembers($scope.user.data.id).then(function(response){
-     $scope.member = response.data;
-
-     $scope.selectedClub = $scope.member;
-     $scope.getClubLayoutTemplate = 'views/common/widgets/get-club-layout.html';
-
+    ClubsService.getOne(clubid).then(function(response){
+        $scope.member = response.data;
     });
   }
 
