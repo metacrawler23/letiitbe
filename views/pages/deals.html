@@ -1,0 +1,26 @@
+<div class="container sp-deal-page">
+    <div class="row m-t-xl">
+        <div class="col-md-12">
+            <div class="page-title center">
+               <!--  <h1 class="m-t-none"><?php echo $dealDetails->name; ?></h1> -->
+                <span class="strip-divider black"></span>
+                <br/>
+                <img src="img/placeholders/home-boxes/macas.png" class="img-responsive"
+                     alt="" style="width: 300px;display: initial;"/><br/><br/>
+
+                <div class="deal-btn">
+                        <a class="btn cta-btn btn-lg btn-clickhere mr-10 redeem-btn"> REDEEM NOW </a>
+                        <a href="javascript:;" data-id="<?= $dealDetails->id ?>" data-account="<?= Yii::app()->user->id ?>" class="wishlist wishlist-not-added favorite-deal" style="font-size: 16px;">
+                            <i class="fa fa-heart-o"> </i>
+                            Add to favourites
+                        </a>
+                    <?php } ?>
+                </div>
+                <h3 class="m-t-none">Show and Save</h3>
+                <!-- <br clear="all"/> -->
+                <div>Present this offer in store at any particpating McDonald's restaurant. Limit of one offer per person per day. Not available with any other offer.</div>
+            </div>
+        </div>
+    </div>
+    <br clear="all"/>
+</div>

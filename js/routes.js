@@ -128,11 +128,24 @@ angular
   })
   .state('app.profile', {
     url: '/profile',
+    controller: 'accountCtrl',
     templateUrl: 'views/pages/profile.html'
   })
   .state('app.termscondition', {
     url: '/terms-and-condition',
     templateUrl: 'views/pages/terms_condition.html'
+  })
+  .state('app.deals', {
+    url: '/deals',
+      templateUrl: 'views/pages/deals.html'
+  })
+  .state('app.forgotpassword', {
+    url: '/forgot-password',
+    templateUrl: 'views/pages/forgot_password.html'
+  })
+  .state('app.resetpassword', {
+    url: '/reset-password',
+    templateUrl: 'views/pages/reset_password.html'
   })
   .state('app.accountclub', {
     url: '/account-club',
