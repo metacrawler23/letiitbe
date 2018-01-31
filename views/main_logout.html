@@ -214,8 +214,8 @@
 
 
 
-                      <a ng-repeat="items in clubLogos" class="item">
-                            <img src="{{ items }}" />
+                      <a href = "{{ items.link }}" ng-repeat="items in clubLogos" class="item">
+                            <img src="{{ items.logo }}" />
                       </a>
                 </div>
             </div>

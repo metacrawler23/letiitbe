@@ -222,10 +222,10 @@
                             </a>
                     <?php endforeach; ?> -->
 
-                      <a li-marquee-directive ng-repeat="items in clubLogos" class="item">
 
-                          <img src="{{ items.logo }}" />
-                      </a>
+                        <a href = "{{ items.link }}" ng-repeat="items in clubLogos" class="item">
+                              <img src="{{ items.logo }}" />
+                        </a>
                 </div>
             </div>
         </div>
