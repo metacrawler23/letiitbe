@@ -148,7 +148,7 @@ function liMarqueeDirective($timeout) {
                     startShow:true
                 });
 
-              },50);
+              },500);
             }
 
 
