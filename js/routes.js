@@ -1,7 +1,7 @@
 angular
 .module('app')
 // .config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$breadcrumbProvider', function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $breadcrumbProvider) {
-.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
+.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider','$locationProvider', function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider,$locationProvider) {
 
   $urlRouterProvider.otherwise('/');
 
@@ -184,4 +184,7 @@ angular
 
       }
   })
+
+  // use the HTML5 History API
+        $locationProvider.html5Mode(true);
 }]);
