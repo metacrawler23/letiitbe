@@ -22,6 +22,10 @@
            return $http.get( sportspass.baseUrl + '/account/account-members/' + id);
          }
 
+         service.getAccountCards = function($id) {
+           return $http.get( sportspass.baseUrl + '/account/account-cards/' + id);
+         }
+
       	 return service;
       }
   })();

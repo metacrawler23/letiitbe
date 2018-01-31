@@ -11,7 +11,12 @@
 
       	 service.getAll = function() {
       	 	return $http.get( sportspass.baseUrl + '/banner/get-banners');
-      	 },
+      	 }
+
+         service.getBannerHotOffers = function() {
+           return $http.get( sportspass.baseUrl + '/banner/banner-hot-offers');
+         }
+
          service.getBannerCategories = function(id) {
           return $http.get( sportspass.baseUrl + '/banner/get-banner-categories/' + id);
          }

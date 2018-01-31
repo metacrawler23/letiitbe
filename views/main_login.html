@@ -48,7 +48,8 @@
                                     </div>
                                     <div class="back">
                                         <div class="product-overlay"></div>
-                                            <a href="{{item.url}}" target="{{item.is_new_tab && '_blank' || '_self' }}" title=" {{item.name}}" class="hotoffers" data-id="{{item.id}}">
+                                            <!-- <a href="{{item.url}}" target="{{item.is_new_tab && '_blank' || '_self' }}" title=" {{item.name}}" class="hotoffers" data-id="{{item.id}}"> -->
+                                              <a href="deals?id={{item.id}}" target="{{item.is_new_tab && '_blank' || '_self' }}" title=" {{item.name}}" class="hotoffers" data-id="{{item.id}}">
 
                                                 <img class="img-responsive" src = "{{item.image}}">
 
@@ -80,7 +81,7 @@
                                     </div>
                                     <div class="back">
                                         <div class="product-overlay"></div>
-                                            <a href="{{item.url}}" target="{{item.is_new_tab && '_blank' || '_self' }}" title=" {{item.name}}" class="hotoffers" data-id="{{item.id}}">
+                                            <a href="deals?id={{item.id}}" target="{{item.is_new_tab && '_blank' || '_self' }}" title=" {{item.name}}" class="hotoffers" data-id="{{item.id}}">
 
                                                 <img class="img-responsive" src = "{{item.image}}">
                                                 <div class="deal-info center">
