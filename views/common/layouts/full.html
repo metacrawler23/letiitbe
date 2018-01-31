@@ -72,6 +72,17 @@
 </div>
 
 <!-- Footer -->
-<div ng-include="'views/common/footer.html'"></div>
+<div ng-if="authenticated == true">
+
+    <div ng-include src="'views/common/footer_login.html'">
+
+    </div>
+
+</div>
+<div ng-if="authenticated == false">
+
+    <div ng-include src="'views/common/footer_logout.html'">
+
+    </div>
 
 </div>

@@ -4,7 +4,7 @@
             <div class="container">
                 <ul class = "left-nav clearfix">
                     <li class="bg-blue sports-pass">
-                        <a href="https://sportspass.com.au/"  target = "_blank">
+                        <a ui-sref-active="active" ui-sref="app.main" target = "_blank">
                             <img src = "./img/sportspass-blue.png">
                         </a>
                     </li>
@@ -17,8 +17,8 @@
 
                 </ul>
                 <ul class = "center-nav desktop-view">
-                    <li><a href = "<?= $this->createAbsoluteUrl('/account/accountclub') ?>"> ADD CARD</a></li>
-                    <li><a href = "<?= $this->createAbsoluteUrl('login/logout') ?>">LOGOUT</a></li>
+                    <li><a ui-sref-active="active" ui-sref="app.accountclub"> ADD CARD</a></li>
+                    <li><a href = "#">LOGOUT</a></li>
                 </ul>
             </div>
         </div>
