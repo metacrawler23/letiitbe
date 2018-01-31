@@ -122,7 +122,7 @@
 
           <div ng-repeat = "bannerItem in defBanners" class="col-md-4 col-sm-4 col-xs-6 {{ bannerItem.sort_order == 12 ? 'col-row' : ''}}">
               <div coupons-img-box = "" class="coupons_img_box default_tiles">
-                  <a target="" href="">
+                  <a target="" href="{{bannerItem.url}}">
                       <img src="{{bannerItem.image}}" alt="">
                   </a>
               </div>
