@@ -4,7 +4,7 @@
             <div class ="tab-holder" id="dealtab1">
                 <ul>
                     <li><a href="javascript:void(0)" class="selected" ng-click = "getHotOffers()">All Offers</a></li>
-                    <li ng-repeat = "categoryItem in categories"><a  href="javascript:void(0)" ng-click = "getTiles(categoryItem.id)" data-type="spoffer">{{categoryItem.name}}</a></li>
+                    <li ng-repeat = "categoryItem in categories"><a  href="javascript:void(0)" ng-click = "getHotOffersFilter(categoryItem.id)" data-type="spoffer">{{categoryItem.name}}</a></li>
                 </ul>
             </div>
         </div>
