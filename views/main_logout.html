@@ -214,7 +214,7 @@
     </div>
 </section>
 
-<section class = "blue_banner">
+<section ng-if="authenticated == false" class = "blue_banner">
     <div class=" container">
         <h4>Get Your Club On Board Today!</h4>
         <p>Joining SportsPass gives your club and your members opportunities no other rewards program can give!</p>
@@ -222,7 +222,7 @@
     </div>
 </section>
 
-<section class = "contact_section" id="contact">
+<section ng-if="authenticated == false" class = "contact_section" id="contact">
     <div class=" container" ng-controller="contactCtrl as contact">
         <h3>Let's Talk</h3>
 
