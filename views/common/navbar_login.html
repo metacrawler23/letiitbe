@@ -18,7 +18,7 @@
                 </ul>
                 <ul class = "center-nav desktop-view">
                     <li><a ui-sref-active="active" ui-sref="app.accountclub"> ADD CARD</a></li>
-                    <li><a href = "#">LOGOUT</a></li>
+                    <li ng-controller="LoginController as login"><a href = "#" ng-click="login.logout()">LOGOUT</a></li>
                 </ul>
             </div>
         </div>

@@ -5,8 +5,8 @@
         .module('app')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['LoginService', '$rootScope', '$scope', '$http', '$window', '$state'];
-    function LoginController(LoginService, $rootScope, $scope, $http, $window, $state) {
+    LoginController.$inject = ['LoginService', '$rootScope', '$scope', '$http', '$window', '$state', '$location'];
+    function LoginController(LoginService, $rootScope, $scope, $http, $window, $state, $location) {
         var vm = this;
 
         vm.errorMessage = "";
@@ -34,6 +34,11 @@
               }
           });
       	}
+
+        vm.logout = function() {
+          $window.localStorage.clear();
+          $state.go('app.main');
+        }
     }
 
 })();
