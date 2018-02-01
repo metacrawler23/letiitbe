@@ -1,11 +1,11 @@
 <section class="banner-container" id="home" style="background:url(./img/sports/SportsPass-Lights-1903x1500.jpg) center top no-repeat; background-size:cover;">
 
-    <div class="container" style="position:relative;">
+    <div class="container clearfix" style="position:relative;">
         <div class = "col-md-9 copy-container">
-            <h1> Welcome to <br> SportsPass...</h1>
-            <br/>
-            <h5 style="margin-bottom: 5px">and your SportsCash eWallet</h5>
-            <h5 style="margin-top: 5px">Reward, earn, experience, share</h5>
+            <h1 style="display: inline-block"> Welcome to <br> SportsPass...</h1>
+            <br/><br/>
+            <h5 style="display: inline-block">and your SportsPass eWallet</h5>
+            <h5 style="margin-top: 0px">Reward, earn, experience, share</h5>
             <div class="discover_link">
                 <a href="#">_Discover more</a>
             </div>
@@ -136,18 +136,15 @@
         </div>
     </div>
     <div class=" container2 container">
-        <div class="row mt-30 tile-holder" ng-controller="homeBoxesCtrl">
-
-          <div ng-repeat = "bannerItem in defBanners" class="col-md-4 col-sm-4 col-xs-6 {{ bannerItem.sort_order == 12 ? 'col-row' : ''}}">
-              <div coupons-img-box = "" class="coupons_img_box default_tiles">
-                  <a target="_blank" href="{{bannerItem.url}}">
-                      <img src="{{bannerItem.image}}" alt="">
-                  </a>
-              </div>
-          </div>
-
-
+      <div class="row mt-30 tile-holder" ng-controller="homeBoxesCtrl">
+        <div ng-repeat = "bannerItem in defBanners" class="col-md-4 col-sm-4 col-xs-6 {{ bannerItem.sort_order == 12 ? 'col-row' : ''}}">
+            <div coupons-img-box = "" class="coupons_img_box default_tiles">
+                <a target="_blank" href="{{bannerItem.url}}">
+                    <img src="{{bannerItem.image}}" alt="">
+                </a>
+            </div>
         </div>
+      </div>
     </div>
 </section>
 
@@ -195,49 +192,39 @@
 
 <section class="partner_section" id="sports"  >
     <div class=" container">
-        <div class="row">
-            <h3>Sportspass Ambassador &amp; Community Partners</h3>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-
-              <div ng-controller="ambassadorCarouselCtrl" >
-
-                <div id = "ambassador-slider" ambassador-carousel-directive="" class="owl-carousel" data-options="">
-                  <div ambassador-carousel-item-directive="" ng-repeat="item in ::ambassadorImages" class="item">
-                    <img src = "{{::item}}">
-                  </div>
-                </div>
-
+      <div class="row">
+          <h3>Sportspass Ambassador &amp; Community Partners</h3>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div ng-controller="ambassadorCarouselCtrl" >
+            <div id = "ambassador-slider" ambassador-carousel-directive="" class="owl-carousel" data-options="">
+              <div ambassador-carousel-item-directive="" ng-repeat="item in ::ambassadorImages" class="item">
+                <img src = "{{::item}}">
               </div>
-
             </div>
+          </div>
         </div>
-
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12 mt-50 mb-20" ng-controller="liMarqueeCtrl">
-
-
-                 <div id = "clublogo-slider" class="mWrap">
-
-                      <a ng-repeat="items in clubLogos" class="item" li-marquee-directive="" target= "_blank" href = "{{ items.link }}">
-                            <img src="{{ items.logo }}" />
-                      </a>
-
-                </div>
-            </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12 mt-50 mb-20" ng-controller="liMarqueeCtrl">
+         <div id = "clublogo-slider" class="mWrap">
+           <!-- target= "_blank" href = "{{ items.link }}" -->
+            <a ng-repeat="items in clubLogos" class="item" li-marquee-directive="" href="javascript:;">
+              <img src="{{ items.logo }}" />
+            </a>
+          </div>
         </div>
-
+      </div>
     </div>
 </section>
 
 <section ng-if="authenticated == false" class = "blue_banner">
-    <div class=" container">
-        <h4>Get Your Club On Board Today!</h4>
-        <p>Joining SportsPass gives your club and your members opportunities no other rewards program can give!</p>
-        <p>Plus we can work with you with our simple fundraising solution. Share the fun amongst your local community through the promotion of Player and Supporter cards.</p>
-    </div>
+  <div class=" container">
+    <h4>Get Your Club On Board Today!</h4>
+    <p>Joining SportsPass gives your club and your members opportunities no other rewards program can give!</p>
+    <p>Plus we can work with you with our simple fundraising solution. Share the fun amongst your local community through the promotion of Player and Supporter cards.</p>
+  </div>
 </section>
 
 <section ng-if="authenticated == false" class = "contact_section" id="contact">

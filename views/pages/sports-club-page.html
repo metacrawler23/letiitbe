@@ -1,12 +1,12 @@
 <div ng-controller = "sportsClubController">
 <section class="banner-container" id="home" style="background:url({{pageDetails.banner_image}}) center top no-repeat; background-size:cover;">
 
-    <div class="container" style="position:relative;">
+    <div class="container clearfix" style="position:relative;">
         <div class = "col-md-9 copy-container">
-            <h1> Welcome to <br> SportsPass...</h1>
-            <br/>
-            <h5 style="margin-bottom: 5px">and your SportsCash eWallet</h5>
-            <h5 style="margin-top: 5px">Reward, earn, experience, share</h5>
+          <h1 style="display: inline-block"> Welcome to <br> SportsPass...</h1>
+          <br/><br/>
+          <h5 style="display: inline-block">and your SportsPass eWallet</h5>
+          <h5 style="margin-top: 0px">Reward, earn, experience, share</h5>
             <div class="discover_link">
                 <a href="#">_Discover more</a>
             </div>
@@ -228,15 +228,12 @@
 
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 mt-50 mb-20" ng-controller="liMarqueeCtrl">
-
-
-                  <div id = "clublogo-slider" class="mWrap">
-
-                       <a ng-repeat="items in clubLogos" class="item" li-marquee-directive="" target= "_blank" href = "{{ items.link }}">
-                             <img src="{{ items.logo }}" />
-                       </a>
-
-                 </div>
+                <div id = "clublogo-slider" class="mWrap">
+                  <!-- target= "_blank" href = "{{ items.link }}" -->
+                   <a ng-repeat="items in clubLogos" class="item" li-marquee-directive="" href="javascript:;">
+                         <img src="{{ items.logo }}" />
+                   </a>
+               </div>
             </div>
         </div>
 
