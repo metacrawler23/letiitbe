@@ -41,6 +41,10 @@
            return $http.get(sportspass.baseUrl + '/banner/banner-trending-experience');
          }
 
+         service.getBannerFilterCategories = function(id) {
+          return $http.get(sportspass.baseUrl + '/banner/banner-filter-categories/' + id);
+         }
+
       	 return service;
       }
   })();
