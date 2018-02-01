@@ -15,14 +15,19 @@
        <div class = "col-md-3 logo-container">
            <img src="{{pageDetails.logo}}" alt="" >
        </div>
-        <div class="col-md-12  banner_card">
+
+        <div ng-if="authenticated == false" class="col-md-12  banner_card">
             <img src="{{pageDetails.front_card_image}}">
+        </div>
+
+        <div ng-if="authenticated == true" class = "col-md-7 dashboard-container ">
+              <div e-wallet-directive=""></div>
         </div>
     </div>
 
 </section>
 
-<section class="join_section" id="join">
+<section ng-if="authenticated == false" class="join_section" id="join">
     <div class=" container">
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12">
@@ -46,6 +51,20 @@
                         <span> Login Now </span>
                     </a>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section ng-if="authenticated == true" class="join_section" id="join">
+    <div class = "container">
+        <div class = "ad-scroller" >
+            <div ng-controller="bannerAdsCarouselCtrl" >
+              <div id = "ambassador-slider" banner-ads-carousel-directive="" class="owl-carousel" data-options="">
+                  <div banner-ads-carousel-item-directive="" ng-repeat="item in ::bannerAdsImages" class="item">
+                      <img src = "{{::item}}">
+                  </div>
+              </div>
             </div>
         </div>
     </div>
@@ -224,7 +243,7 @@
     </div>
 </section>
 
-<section class = "blue_banner">
+<section ng-if="authenticated == false" class = "blue_banner">
     <div class=" container">
         <h4>Get Your Club On Board Today!</h4>
         <p>Joining SportsPass gives your club and your members opportunities no other rewards program can give!</p>
@@ -232,7 +251,7 @@
     </div>
 </section>
 
-<section class = "contact_section" id="contact">
+<section ng-if="authenticated == false" class = "contact_section" id="contact">
     <div class=" container">
         <h3>Let's Talk</h3>
 

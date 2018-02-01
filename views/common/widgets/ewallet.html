@@ -15,17 +15,16 @@
               </div>
           </div>
 
-              <ul class = "clearfix">
-                      <li class = "col-md-6 wallet-card" ng-repeat="listcard in cards">
-                          <img class = "image-preview-modal" src = "{{listcard.memberCard}}">
-                          <span>{{listcard.memberName}}</span>
+          <ul class = "clearfix">
+            <li class = "col-md-6 wallet-card" ng-repeat="listcard in cards">
+                <img class = "image-preview-modal" src = "{{listcard.memberCard}}">
+                <span>{{listcard.memberName}}</span>
 <!--                            <span><a href = "/profile#sportspass-cards">--><?//= SportsPassClub::getClubNameById($ac_value['club_id']) ?><!--</a></span>-->
-                          <a href="javascript:;" style = "display:none" class="btn btn-primary card-modal" data-club-id="<?= $ac_value['club_id'] ?>" data-member-number = "<?= SportsPassClubMembers::getMemberMemberNumber($ac_value['sp_member_id']) ?>" data-banner-image = "<?= $club['banner_image'] ?>" data-name="<?= SportsPassClub::getClubNameById($ac_value['club_id']) ?>" data-card='<?= SportsPassClubMembers::getMemberCardData($ac_value['sp_member_id']) ?>' data-avatar="<?= SportsPassAccountCard::getAvatarById($ac_value['sp_member_id']) ?>" data-club-logo="<?= SportsPassClub::getClubLogoById($ac_value['club_id']) ?>">
-                              View Card
-                          </a>
-                      </li>
-              </ul>
-
+                <a href="javascript:;" style = "display:none" class="btn btn-primary card-modal" data-club-id="<?= $ac_value['club_id'] ?>" data-member-number = "<?= SportsPassClubMembers::getMemberMemberNumber($ac_value['sp_member_id']) ?>" data-banner-image = "<?= $club['banner_image'] ?>" data-name="<?= SportsPassClub::getClubNameById($ac_value['club_id']) ?>" data-card='<?= SportsPassClubMembers::getMemberCardData($ac_value['sp_member_id']) ?>' data-avatar="<?= SportsPassAccountCard::getAvatarById($ac_value['sp_member_id']) ?>" data-club-logo="<?= SportsPassClub::getClubLogoById($ac_value['club_id']) ?>">
+                    View Card
+                </a>
+            </li>
+          </ul>
       </div>
   </div>
 
@@ -93,9 +92,7 @@
 
 </div>
 <div id="card-modal" class="modal fade-scale" role="dialog">
-
     <div class="modal-dialog">
-
         <div class="card-flip-container">
             <div class="card-flipper">
                 <div class="card-front">
@@ -105,17 +102,12 @@
                          style="width: 100%"/>
                 </div>
                 <div class="card-back">
-
                     <!-- Modal content-->
                     <div class="modal-content" style="text-align: center">
-
                         <div class="modal-body">
-
 
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>

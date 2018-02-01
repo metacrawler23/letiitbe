@@ -95,7 +95,38 @@ angular
     abstract: true,
     url: '/sports',
     defaultChild: 'app.sportClub.view',
-    template: '<ui-view></ui-view>'
+    template: '<ui-view></ui-view>',
+    resolve: {
+      loadCSS: ['$ocLazyLoad', function($ocLazyLoad) {
+        // you can lazy load CSS files
+        return $ocLazyLoad.load([{
+          serie: true,
+          name: 'Ewallet Css',
+          files: ['css/ewallet.css']
+        }]);
+      }],
+      loadPlugin: ['$ocLazyLoad', function ($ocLazyLoad) {
+        // you can lazy load files for an existing module
+        return $ocLazyLoad.load([
+          {
+            serie: true,
+            name: 'chart.js',
+            files: [
+              'bower_components/chart.js/dist/Chart.min.js',
+              'bower_components/angular-chart.js/dist/angular-chart.min.js'
+            ]
+          }
+        ]);
+      }],
+      loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+        // you can lazy load controllers
+        return $ocLazyLoad.load({
+          files: [
+            'js/controllers/ewallet.controller.js'
+          ]
+        });
+      }]
+    }
   })
   .state('app.sportClub.view', {
     url: '',
