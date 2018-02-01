@@ -37,7 +37,7 @@
 
         vm.logout = function() {
           $window.localStorage.clear();
-          $state.go('app.main');
+          $state.go($state.current, {}, {reload: true});
         }
     }
 
