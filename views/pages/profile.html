@@ -55,7 +55,7 @@
                                     <input class="form-control personal-profile"
                                            type="text"
                                            value="{{ userData.first_name }}"
-                                           name="data[firstname]"
+
                                            readonly
                                     />
                                 </div>
@@ -69,7 +69,7 @@
                                     <input class="form-control"
                                            type="text"
                                            value="{{ userData.email }}"
-                                           name="data[email]"
+
                                            readonly
                                     />
                                 </div>
@@ -83,7 +83,7 @@
                                     <input class="form-control"
                                            type="text"
                                            value="{{ userData.mobile }}"
-                                           name="data[mobile]"
+
                                     />
                                 </div>
                             </div>
@@ -96,7 +96,7 @@
                                 </label>
                                 <div class="col-md-8">
                                     <input class="form-control personal-profile" type="text"
-                                           value="{{ userData.last_name }}" name="data[lastname]" readonly/>
+                                           value="{{ userData.last_name }}"  readonly/>
                                 </div>
                             </div>
 
@@ -106,7 +106,7 @@
                                 </label>
                                 <div class="col-md-8">
                                     <input class="form-control dob personal-profile" type="text"
-                                           value="{{ userData.dob }}" name="data[dob]" readonly/>
+                                           value="{{ userData.dob }}" readonly/>
                                 </div>
                             </div>
                         </div>
@@ -219,7 +219,7 @@
                                 </label>
                                 <div class="col-md-8">
                                     <input class="form-control personal-address" type="text"
-                                           value="{{ userData.address }}" name="data[street1]" readonly/>
+                                           value="{{ userData.address }}"  readonly/>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -228,7 +228,7 @@
                                 </label>
                                 <div class="col-md-8">
                                     <input class="form-control personal-address" type="text"
-                                           value="{{ userData.suburb }}" name="data[suburb]" readonly/>
+                                           value="{{ userData.suburb }}" readonly/>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -237,7 +237,7 @@
                                 </label>
                                 <div class="col-md-8">
                                     <input class="form-control personal-address" type="text"
-                                           value="{{ userData.post_code }}" name="data[postcode]" readonly/>
+                                           value="{{ userData.post_code }}" readonly/>
                                 </div>
                             </div>
 
@@ -250,7 +250,7 @@
                                 </label>
                                 <div class="col-md-8">
 
-                                    <select class="form-control personal-address" name="data[state]" ng-model="userData.state" >
+                                    <select class="form-control personal-address" ng-model="userData.state" >
                                         <option ng-repeat="option in getSate" value="{{option}}">{{option}}</option>
                                     </select>
 
@@ -262,7 +262,7 @@
                                     Country
                                 </label>
                                 <div class="col-md-8">
-                                    <input class="form-control" type="text" value="AU" name="data[country]"/>
+                                    <input class="form-control" type="text" value="AU" />
                                 </div>
                             </div>
                         </div>
@@ -297,18 +297,18 @@
                       </div>
                       <div class="ibox-content clearfix no-padding-x">
                           <div class="row">
+                              <div ng-repeat="cards in userCards">
 
-                              <form class="form-horizontal" role="form" name="club-donation-form">
+                              </div>
+                              <!-- <form class="form-horizontal" role="form" name="club-donation-form">
                                   <div class="row">
                                       <div class="ibox-content clearfix no-padding-x">
                                           <div class="row card-holders">
 
-
-
                                           </div>
                                       </div>
                                   </div>
-                              </form>
+                              </form> -->
 
                           </div>
                       </div>

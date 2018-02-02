@@ -21,9 +21,10 @@
 
                               <!-- <select get-club-layout="" class="form-control clubs" name="list" ng-model="defaultClub" ng-options="listClub.id as listClub.name for listClub in clubs track by listClub.id" ng-change="update()"> -->
 
-                              <select class="form-control clubs" name="list" ng-model="defaultClub" ng-options="listClub as listClub.name for listClub in clubs">
-                                  <option value="">--Select Organisation--</option>
+                              <select display-selected-form = "" class="form-control clubs" name="list" ng-model="selectedClub" ng-options="listClub.name for listClub in clubs">
+                                  <!-- <option value="">--Select Organisation--</option> -->
                               </select>
+
 
                             <hr/>
                         </div>
@@ -38,10 +39,6 @@
             </div>
 
         <div class="row">
-            <!-- <?php
-                $card = SportsPassAccountCard::getCardByAccountId($account->id);
-
-                if ($card) : ?> -->
             <h2 class="text-center mb-20">Your Digital Cards</h2>
 
             <div class="digital-cards clearfix mb-30">
@@ -52,21 +49,18 @@
                              alt="{{ (getClubDetails(listcard)).name }}"
                              style="width: 100%"/>
                     </a>
-
                     <br/>
                     <h3 style="display: none;">{{ (getClubDetails(listcard)).name }}</h3>
 
-                        <a href="javascript:;" style = "display:none" class="btn btn-primary card-modal" data-image="<?= $value['card'] ?>" data-club-id="<?= $value['club_id'] ?>" data-member-number = "<?= SportsPassClubMembers::getMemberMemberNumber($value['sp_member_id']) ?>" data-banner-image = "<?= $club['banner_image'] ?>" data-name="<?= SportsPassClub::getClubNameById($value['club_id']) ?>" data-card='<?= SportsPassClubMembers::getMemberCardData($value['sp_member_id']) ?>' data-avatar="<?= SportsPassAccountCard::getAvatarById($value['sp_member_id']) ?>" data-club-logo="<?= SportsPassClub::getClubLogoById($value['club_id']) ?>">
-                            View Card
-                        </a>
+                    <a href="javascript:;" style = "display:none" class="btn btn-primary card-modal" data-image="<?= $value['card'] ?>" data-club-id="<?= $value['club_id'] ?>" data-member-number = "<?= SportsPassClubMembers::getMemberMemberNumber($value['sp_member_id']) ?>" data-banner-image = "<?= $club['banner_image'] ?>" data-name="<?= SportsPassClub::getClubNameById($value['club_id']) ?>" data-card='<?= SportsPassClubMembers::getMemberCardData($value['sp_member_id']) ?>' data-avatar="<?= SportsPassAccountCard::getAvatarById($value['sp_member_id']) ?>" data-club-logo="<?= SportsPassClub::getClubLogoById($value['club_id']) ?>">
+                        View Card
+                    </a>
 
-                        <a href="javascript:;" style = "display:none" class="btn btn-primary updatecard-modal" data-name="<?= SportsPassClub::getClubNameById($value['club_id']) ?>" data-club="<?= $value['club_id'] ?>" data-banner-image = "<?= $club['banner_image'] ?>" data-member-number = "<?= SportsPassClubMembers::getMemberMemberNumber($value['sp_member_id']) ?>" data-account="<?= $value['sp_member_id'] ?>" data-form='<?= $club['form'] ?>' data-card='<?= SportsPassClubMembers::getMemberCardData($value['sp_member_id']) ?>' data-avatar="<?= SportsPassAccountCard::getAvatarById($value['sp_member_id']) ?>">
-                            Update Card
-                        </a>
+                    <a href="javascript:;" style = "display:none" class="btn btn-primary updatecard-modal" data-name="<?= SportsPassClub::getClubNameById($value['club_id']) ?>" data-club="<?= $value['club_id'] ?>" data-banner-image = "<?= $club['banner_image'] ?>" data-member-number = "<?= SportsPassClubMembers::getMemberMemberNumber($value['sp_member_id']) ?>" data-account="<?= $value['sp_member_id'] ?>" data-form='<?= $club['form'] ?>' data-card='<?= SportsPassClubMembers::getMemberCardData($value['sp_member_id']) ?>' data-avatar="<?= SportsPassAccountCard::getAvatarById($value['sp_member_id']) ?>">
+                        Update Card
+                    </a>
                 </div>
             </div>
-            <!-- <?php
-                endif; ?> -->
         </div>
 
     </div>

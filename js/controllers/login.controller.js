@@ -5,8 +5,8 @@
         .module('app')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['LoginService', '$rootScope', '$scope', '$http', '$window', '$state', '$location'];
-    function LoginController(LoginService, $rootScope, $scope, $http, $window, $state, $location) {
+    LoginController.$inject = ['LoginService', '$rootScope', '$scope', '$http', '$window', '$state'];
+    function LoginController(LoginService, $rootScope, $scope, $http, $window, $state) {
         var vm = this;
 
         vm.errorMessage = "";

@@ -6,6 +6,67 @@ angular
 .directive('checkMember', checkMember)
 .directive('file', file)
 .directive('displayForms', displayForms)
+.directive('displaySelectedForm', displaySelectedForm)
+
+
+function displaySelectedForm($compile,AccountService,ClubsService) {
+    var directive = {
+      restrict: 'A',
+      scope: {
+          selectedClub: '=ngModel'
+        },
+      link: link
+
+    }
+  return directive;
+
+  function link(scope, element, attrs) {
+
+            element.on("change", function() {
+
+                console.log(scope.selectedClub);
+
+
+                   var clubData = scope.selectedClub;
+
+                    var content = "";
+
+                    content = '<div class="newly-added addcard-container text-center">' +
+                              '<div class="club-card">' +
+                              '<a href="javascript:;" class="club-card-header">' +
+                              '<img class="img-responsive" src="'+scope.selectedClub.front_card_image+'">' +
+                              '</a>' +
+                              '<div class="dynamic-form-wrapper">' +
+                              '<div class="dynamic-form-header">' +
+                              '<span>No Text</span>' +
+                              '</div>' +
+                              '<h4 class="club-name">'+scope.selectedClub.name+'</h4>' +
+                              '<div id="render-form" class="collapse">' +
+                              '<form id="dynamic-card-form" class="render-wrap text-left" name="form" role="form" ng-controller="accountClubCtrl as card">' +
+                              '</form>' +
+                              '<div class="dynamic-card-wrapper clearfix">' +
+                              '<span class="avatar pull-left" style="display: none;margin-top: 20px;">' +
+                              '<img src="" width="80px" alt="placeholder" style="margin: 0 auto;display: block;"/>' +
+                              '</span>' +
+                              '</div>' +
+                              '<div class = "card-barcode-image"></div>' +
+                              '</div>' +
+                              '<create-card-form test="'+ scope.selectedClub.id +'" class="btn btn-primary mb-20">Create Card</create-card-form>' +
+                              '<div class="dynamic-form-footer" style="margin-top: 10px">' +
+                              '<span>No Text</span>' +
+                              '</div>' +
+                              '</div>' +
+                              ' </div>' +
+                              '</div>';
+
+                              element.parents('.account-wrapper').append($compile(content)(scope));
+
+
+
+            });
+  }
+}
+
 
 function displayForms($compile,AccountService,ClubsService) {
   var directive = {
@@ -14,12 +75,12 @@ function displayForms($compile,AccountService,ClubsService) {
   }
   return directive;
 
-  function link($scope, element, attrs) {
-            $scope.user  = JSON.parse(localStorage.getItem('user'));
+  function link(scope, element, attrs) {
+            scope.user  = JSON.parse(localStorage.getItem('user'));
 
-            $scope.data = AccountService.getAccountMembers($scope.user.data.id);
+            scope.data = AccountService.getAccountMembers(scope.user.data.id);
 
-            $scope.data.then(function successCallback(response) {
+            scope.data.then(function successCallback(response) {
 
 
 
@@ -27,22 +88,23 @@ function displayForms($compile,AccountService,ClubsService) {
                   angular.forEach(response.data, function(data, key) {
 
                       ClubsService.getOne(data.club_id).then(function successCallback(response) {
-                        $scope.getClubData = response.data;
 
-                        var clubData = $scope.getClubData;
+                        scope.getClubData = response.data;
+
+                        var clubData = scope.getClubData;
                         console.log(clubData);
                       var content = "";
 
                       content = '<div class="newly-added addcard-container text-center">' +
                                 '<div class="club-card">' +
                                 '<a href="javascript:;" class="club-card-header">' +
-                                '<img class="img-responsive" src="'+ $scope.getClubData.front_card_image +'">' +
+                                '<img class="img-responsive" src="'+ scope.getClubData.front_card_image +'">' +
                                 '</a>' +
                                 '<div class="dynamic-form-wrapper">' +
                                 '<div class="dynamic-form-header">' +
                                 '<span>No Text</span>' +
                                 '</div>' +
-                                '<h4 class="club-name">'+ $scope.getClubData.name +'</h4>' +
+                                '<h4 class="club-name">'+ scope.getClubData.name +'</h4>' +
                                 '<div id="render-form" class="collapse">' +
                                 '<form id="dynamic-card-form" class="render-wrap text-left" name="form" role="form" ng-controller="accountClubCtrl as card">' +
                                 '</form>' +
@@ -53,14 +115,14 @@ function displayForms($compile,AccountService,ClubsService) {
                                 '</div>' +
                                 '<div class = "card-barcode-image"></div>' +
                                 '</div>' +
-                                '<create-card-form model="clubData" class="btn btn-primary mb-20">Create Card</create-card-form>' +
+                                '<create-card-form test="'+ scope.getClubData.id +'" class="btn btn-primary mb-20">Create Card</create-card-form>' +
                                 '<div class="dynamic-form-footer" style="margin-top: 10px">' +
                                 '<span>No Text</span>' +
                                 '</div>' +
                                 '</div>' +
                                 ' </div>' +
                                 '</div>';
-                                element.after().append($compile(content)($scope));
+                                element.parents('.account-wrapper').append($compile(content)(scope));
 
 
 
@@ -151,7 +213,7 @@ function createCardForm(globalService,$compile) {
     restrict: 'E',
     controller: 'accountClubCtrl',
     scope: {
-      	formData: '=model'
+      	formData: '=test'
       },
     link: link
   }
@@ -161,6 +223,9 @@ function link(scope, element, attrs) {
 
     element.on("click", function() {
       var content = "";
+
+      console.log(scope.formData);
+return false;
 
       scope.clubId = scope.formData.id;
 
@@ -185,9 +250,11 @@ function link(scope, element, attrs) {
                     content += "<input ng-model='card.first_name' type='"+data.type+"' name='"+data.name+"' data-club='"+scope.formData.id+"' placeholder='"+globalService.stripTags(data.label)+"' class='form-control' data-required='"+required+"' >";
               }  else if (data.name == 'last-name') {
                     content += "<input ng-model='card.last_name' type='"+data.type+"' name='"+data.name+"' data-club='"+scope.formData.id+"' placeholder='"+globalService.stripTags(data.label)+"' class='form-control' data-required='"+required+"' >";
-              } else {
-                content += "<input ng-model='' type='"+data.type+"' name='"+data.name+"' data-club='"+scope.formData.id+"' placeholder='"+globalService.stripTags(data.label)+"' class='form-control' data-required='"+required+"' >";
               }
+
+              //  else {
+              //   content += "<input ng-model='' type='"+data.type+"' name='"+data.name+"' data-club='"+scope.formData.id+"' placeholder='"+globalService.stripTags(data.label)+"' class='form-control' data-required='"+required+"' >";
+              // }
 
           }
 

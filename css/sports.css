@@ -226,10 +226,9 @@ Start- About Section
 
 .about_section {
     width: 100%;
-    background: url(../img/sports/Crowd-Hero.jpeg) fixed left no-repeat;
+    background: url(../img/sports/home-bg-img2.jpg) fixed right no-repeat;
     background-size: cover;
-    /*padding: 30px 0 60px 0;*/
-    padding: 55px 0 70px 0;
+    padding: 30px 0 60px 0;
 }
 .about_copy {
     width: 100%;

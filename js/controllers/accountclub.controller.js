@@ -22,47 +22,32 @@ function accountClubCtrl($compile,$scope, $modal, $http, $log , ClubsService, Me
     });
   }
 
-  // $scope.getMembers = function(member, club) {
-  //
-  //   MemberService.checkMemberNumber(member, club).then(function(response){
-  //     // $scope.member = response.data.member;
-  //     //
-  //     // console.log($scope.member);
-  //     return response.data.member;
-  //
-  //   });
-  //
-  //   // AccountService.getAccountMembers($scope.user.data.id).then(function(response){
-  //   //  $scope.member = response.data;
-  //   //
-  //   //  console.log($scope.member);
-  //   // });
-  // }
 
   $scope.specificClub = function(clubid) {
 
     ClubsService.getOne(clubid).then(function(response){
-        $scope.member = response.data;
+      $scope.member = response.data;
     });
   }
 
   // Set default club in the select element
   $scope.defaultClub = $scope.clubs[-1];
+  $scope.clubData = {};
 
   // Activates if the club is selected
-  $scope.selectClub = function() {
-
-    if ($scope.defaultClub){
-
-      $scope.selectedClub = $scope.defaultClub;
-      $scope.getClubLayoutTemplate = 'views/common/widgets/get-club-layout.html';
-
-    }else {
-
-      $scope.getClubLayoutTemplate = '';
-
-    }
-  }
+  // $scope.selectClub = function() {
+  //
+  //   if ($scope.defaultClub){
+  //
+  //     $scope.selectedClub = $scope.defaultClub;
+  //     $scope.getClubLayoutTemplate = 'views/common/widgets/get-club-layout.html';
+  //
+  //   }else {
+  //
+  //     $scope.getClubLayoutTemplate = '';
+  //
+  //   }
+  // }
 
   /**
    * @todo get selected club data
@@ -171,86 +156,82 @@ function accountClubCtrl($compile,$scope, $modal, $http, $log , ClubsService, Me
     }
   }
 
-
-
-
     // Open card modal
-    $scope.openCardModal = function(card) {
+  $scope.openCardModal = function(card) {
 
     console.log();
-          //$scope.items = ['item1', 'item2', 'item3'];
 
-        var modalInstance = $modal.open({
-        // animation: false,
-        // backdrop: 'static',
-        templateUrl: 'views/common/widgets/get-card-modal.html',
-        controller: 'ModalInstanceCtrl',
-        windowClass: 'card-modal fade-scale',
+    var modalInstance = $modal.open({
+    // animation: false,
+    // backdrop: 'static',
+    templateUrl: 'views/common/widgets/get-card-modal.html',
+    controller: 'ModalInstanceCtrl',
+    windowClass: 'card-modal fade-scale',
 
-          // size: '100px',
-          resolve: {
-            clubValue: function() {
-                  if (!$scope.clubs) {
-                      return;
-                  }
-
-                  for (var c = 0; c < $scope.clubs.length; c++) {
-                      var club = $scope.clubs[c];
-                      if (club.id == card.clubId) {
-                          return club;
-                      }
-                  }
-            },
-            memberValue: function() {
-              if (!$scope.member) {
+      // size: '100px',
+      resolve: {
+        clubValue: function() {
+              if (!$scope.clubs) {
                   return;
               }
 
-              for (var c = 0; c < $scope.member.length; c++) {
-                  var member = $scope.member[c];
-                  if (member.memberNumber == card.memberNumber) {
-                      return member;
+              for (var c = 0; c < $scope.clubs.length; c++) {
+                  var club = $scope.clubs[c];
+                  if (club.id == card.clubId) {
+                      return club;
                   }
               }
-            },
-            cardValue: function () {
-              return card;
-            }
-          }
-        });
-        modalInstance.result.then(function() {
-              console.log();
-            });
-        // uibmodalInstance.result.then(function () {
-        //     //products = selectedItems;
-        // }, function () {
-        //     $log.info('Modal dismissed at: ' + new Date());
-        // });
-    };
-
-
-    $scope.slim = {
-        // called when slim has initialized
-        init: function (data, slim) {
-          // slim instance reference
-          console.log(slim);
-
-          // current slim data object and slim reference
-          console.log(data);
         },
+        memberValue: function() {
+          if (!$scope.member) {
+              return;
+          }
 
-        // called when upload button is pressed or automatically if push is enabled
-        service: function (formdata, progress, success, failure, slim) {
-          // form data to post to server
-          console.log(formdata);
-
-          // call these methods to handle upload state
-          console.log(progress, success, failure);
-
-          // reference to Slim instance
-          console.log(slim);
+          for (var c = 0; c < $scope.member.length; c++) {
+              var member = $scope.member[c];
+              if (member.memberNumber == card.memberNumber) {
+                  return member;
+              }
+          }
+        },
+        cardValue: function () {
+          return card;
         }
-    }
+      }
+    });
+    modalInstance.result.then(function() {
+      console.log();
+    });
+    // uibmodalInstance.result.then(function () {
+    //     //products = selectedItems;
+    // }, function () {
+    //     $log.info('Modal dismissed at: ' + new Date());
+    // });
+  };
+
+
+  $scope.slim = {
+      // called when slim has initialized
+      init: function (data, slim) {
+        // slim instance reference
+        console.log(slim);
+
+        // current slim data object and slim reference
+        console.log(data);
+      },
+
+      // called when upload button is pressed or automatically if push is enabled
+      service: function (formdata, progress, success, failure, slim) {
+        // form data to post to server
+        console.log(formdata);
+
+        // call these methods to handle upload state
+        console.log(progress, success, failure);
+
+        // reference to Slim instance
+        console.log(slim);
+      }
+  }
 
     $scope.upload = function(file, type) {
 
